@@ -38,7 +38,7 @@ const login = async (req, res) => {
         const access_token = createAccessToken({id: user._id})
         const refresh_token = createRefreshToken({id: user._id})
 
-        res.json({
+        return res.json({
             msg: 'เข้าสู่ระบบสำเร็จ',
             refresh_token,
             access_token,

@@ -8,7 +8,7 @@ class MyDocument extends Document {
         <Head>
           <meta name="description" content="Dev Ecommerce Web"></meta>
 
-          <link
+          {/* <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
@@ -33,10 +33,10 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap"
             rel="stylesheet"
-          />
+          /> */}
         </Head>
 
-        <script
+        {/* <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
           integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
           crossOrigin="anonymous"
@@ -47,7 +47,7 @@ class MyDocument extends Document {
           integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
           crossOrigin="anonymous"
           async 
-        />
+        /> */}
 
         <body>
           <Main />

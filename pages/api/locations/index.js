@@ -32,7 +32,7 @@ const createLocations = async (req, res) => {
 
     await newLocations.save();
 
-    res.json({
+    return res.json({
       msg: "Successfully! Created a category.",
       newLocations,
     });
@@ -46,7 +46,7 @@ const getLocations = async (req, res) => {
 
     const locations = await Location.find();
 
-    res.json({ locations });
+    return res.json({ locations });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }

@@ -134,7 +134,7 @@ const register = async (req, res) => {
     }
 
     // console.log(newUser)
-    res.json({ msg: "สมัครสมาชิกสำเร็จ" });
+    return res.json({ msg: "สมัครสมาชิกสำเร็จ" });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }
