@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import PaypalBtn from "./paypalBtn";
 import { patchData } from "../utils/fetchData";
 import { updateItem } from "../store/Actions";
 import { useRouter } from "next/router";
@@ -7,7 +6,6 @@ import OmiseBtn from "./omiseBtn";
 import OmiseIBBtn from "./omiseIBBtn";
 import QrCode from "./QrCode";
 import moment from "moment";
-import PaypalBtn from "./paypalBtn";
 
 const OrderItem = ({ orderDetail, state, dispatch }) => {
   const router = useRouter();
@@ -124,8 +122,6 @@ const OrderItem = ({ orderDetail, state, dispatch }) => {
                 />
               </div>
               <QrCode order={order} />
-              {/* <p>Pay with Paypal</p>
-              <PaypalBtn order={order} /> */}
               <p>Pay with Omise</p>
               <OmiseBtn order={order} />
               {/* <OmiseIBBtn order={order} /> */}

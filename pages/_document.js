@@ -40,25 +40,14 @@ class MyDocument extends Document {
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
           integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
           crossOrigin="anonymous"
+          async 
         />
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
           crossOrigin="anonymous"
+          async 
         />
-
-        {/* <script src="https://cdn.omise.co/omise.js" /> */}
-        
-        <script
-          src={
-            "https://www.paypal.com/sdk/js?client-id=AbKrIWFgyKWjA8b8odXaZsXhZDmID5TszedFdEB8AQCV6dnl6ZhOOkJbtzk4HU-0kvna3EkBsh6ZpOnp"
-          }
-        />
-
-        {/* <Script
-            id="bootstrap-cdn"
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-          /> */}
 
         <body>
           <Main />

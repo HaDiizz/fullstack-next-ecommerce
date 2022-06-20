@@ -89,7 +89,7 @@ const Home = (props) => {
           <div className="absolute z-10 text-white text_banner">
 
             <h1 className="text-intro bg-gradient-to-l from-indigo-500 via-purple-400 to-indigo-600 font-bold text-gradient drop-shadow-md">
-              It's not just a food, it's an experience.
+              It&apos;s not just a food, it&apos;s an experience.
             </h1>
 
             <div className="type_animate pt-10 pb-3">
@@ -108,7 +108,7 @@ const Home = (props) => {
             <button className="btn_banner outline outline-1 p-2 rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">
               <Link to="shop" smooth={true} duration={500} offset={-105}>
                 <div className="d-flex">
-                  LET'S SHOP
+                  LET&apos;S SHOP
                   <div className="pt-1 pl-2">
                     <AiOutlineShoppingCart />
                   </div>

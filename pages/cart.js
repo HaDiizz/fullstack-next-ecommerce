@@ -4,7 +4,6 @@ import { DataContext } from "../store/GlobalState";
 import CartItem from "../components/product/CartItem";
 import Link from "next/link";
 import { getData, postData } from "../utils/fetchData";
-// import PaypalBtn from "./product/paypalBtn";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";

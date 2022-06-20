@@ -77,34 +77,4 @@ const updateOrder = async (req, res) => {
   }
 };
 
-const paymentOrder = async (req, res) => {
-  try {
-    const result = await auth(req, res);
 
-    if (result.role === "user") {
-      const { id } = req.query;
-      const { paymentId } = req.body;
-
-      await Order.findOneAndUpdate(
-        { _id: id },
-        {
-          paid: true,
-          dateOfPayment: new Date(),
-          paymentId,
-          method: "Paypal",
-        }
-      );
-
-      res.json({ msg: "ชำระเงินสำเร็จ" });
-    }
-  } catch (err) {
-    return res.status(500).json({ err: err.message });
-  }
-};
-
-// const sold = async (id, quantity, oldInStock, OldSold) => {
-//     await Product.findOneAndUpdate({_id: id}, {
-//         inStock: oldInStock - quantity,
-//         sold: quantity + OldSold
-//     })
-// }
