@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { patchData, getData } from "../../utils/fetchData";
 import Link from "next/link";
-import noDataSVG from "../../public/images/void.svg";
+import noDataSVG from "../../assets/void.svg";
 import Image from "next/image";
 
 const Manage = () => {

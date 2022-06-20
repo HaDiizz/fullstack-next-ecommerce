@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import banner1 from "../public/images/banner1.jpg";
-import banner2 from "../public/images/banner2.jpg";
-import banner3 from "../public/images/banner3.jpg";
+// import banner1 from "../assets/banner1.jpg";
+// import banner2 from "../assets/banner2.jpg";
+// import banner3 from "../assets/banner3.jpg";
 import Typed from "react-typed";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 // import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -61,10 +61,7 @@ const Home = (props) => {
       );
       setFilter(filtered);
     }
-    // else {
-    //   const filtered = shops.filter((item) => item.location === location);
-    //   setFilter(filtered);
-    // }
+
   }, [location, shops, search]);
 
   useEffect(() => {
@@ -119,22 +116,22 @@ const Home = (props) => {
           <div className="carousel-item active">
             <Image
               className="d-block w-100 banner"
-              src={banner1}
-              alt={banner1}
+              src={"../assets/banner1.jpg"}
+              alt={'banner'}
             />
           </div>
           <div className="carousel-item">
             <Image
               className="d-block w-100 banner"
-              src={banner2}
-              alt={banner2}
+              src={'../assets/banner2.jpg'}
+              alt={'banner'}
             />
           </div>
           <div className="carousel-item">
             <Image
               className="d-block w-100 banner"
-              src={banner3}
-              alt={banner3}
+              src={'../assets/banner3.jpg'}
+              alt={'banner'}
             />
           </div>
         </div>

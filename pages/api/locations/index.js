@@ -19,7 +19,8 @@ export default async (req, res) => {
 const createLocations = async (req, res) => {
   try {
     const result = await auth(req, res);
-    if(result.role !== "admin") return res.status(400).json({ err: "Authentication is not valid" });
+    if (result.role !== "admin")
+      return res.status(400).json({ err: "Authentication is not valid" });
 
     const { name } = req.body;
 
@@ -43,7 +44,6 @@ const createLocations = async (req, res) => {
 
 const getLocations = async (req, res) => {
   try {
-
     const locations = await Location.find();
 
     return res.json({ locations });
