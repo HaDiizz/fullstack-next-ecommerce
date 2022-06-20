@@ -43,12 +43,7 @@ const AdminManageShop = () => {
     if (auth.user) {
       setDropdown(shops);
     }
-    // setFiltered(
-    //   shops.filter( shop => {
-    //     return (shop?.location.toLowerCase().includes(search.toLowerCase()) || shop?.shopName.toLowerCase().includes(search.toLowerCase()) )
-    //    })
-    // )
-  }, [shops]);
+  }, [shops, auth.user]);
 
   if (!auth.user) {
     return null;
@@ -120,7 +115,7 @@ const AdminManageShop = () => {
               {dropdown?.map((shop) => (
                 <tr key={shop._id}>
                   <td className="p-2">
-                    <Image src={shop.logo} width="100%" height="100%" />
+                    <Image src={shop.logo} width="100%" height="100%" alt="logo" />
                   </td>
                   <td className="p-2">
                     <Link href="#">

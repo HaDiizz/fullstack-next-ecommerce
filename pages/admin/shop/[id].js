@@ -29,7 +29,7 @@ const ManageShopId = () => {
     const newArr = shops.filter((shop) => shop._id === id);
     setEditShop(newArr);
     // console.log(newArr)
-  }, [shops]);
+  }, [shops, id]);
 
 
   useEffect(() => {

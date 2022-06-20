@@ -25,7 +25,7 @@ const AdminManageUsers = () => {
         // sortable: true,
         // sortField: "image",
         hide: "sm",
-        selector: (row) => <Image width={40} height={35} src={row.avatar} />,
+        selector: (row) => <Image width={40} height={35} src={row.avatar} alt="logo" />,
       },
       {
         name: "Name",

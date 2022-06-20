@@ -381,8 +381,8 @@ const Register = () => {
                   </label>
 
                   {isImage && (
-                    <div id="file_img" className="pl-[15rem]">
-                      {image && <Image src={image} width={150} height={150} />}
+                    <div id="file_Img" className="pl-[15rem]">
+                      {image && <Image src={image} width={50} height={50} alt="logo" />}
                     </div>
                   )}
                 </Row>
