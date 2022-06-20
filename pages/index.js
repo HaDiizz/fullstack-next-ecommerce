@@ -1,13 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import HeadBannerOne from "../assets/bannerOne.jpg";
-import HeadBannerTwo from "../assets/bannerTwo.jpg";
-import HeadBannerThree from "../assets/bannerThree.jpg";
+// import HeadBannerOne from "../assets/bannerOne.jpg";
+// import HeadBannerTwo from "../assets/bannerTwo.jpg";
+// import HeadBannerThree from "../assets/bannerThree.jpg";
 import Typed from "react-typed";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
 import { Link, Element } from "react-scroll";
 import ShopItem from "../components/shop/ShopItem";
 import { getData } from "../utils/fetchData";
