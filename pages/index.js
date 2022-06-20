@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-// import banner1 from "../assets/banner1.jpg";
-// import banner2 from "../assets/banner2.jpg";
-// import banner3 from "../assets/banner3.jpg";
+import HeadBannerOne from "../assets/bannerOne.jpg";
+import HeadBannerTwo from "../assets/bannerTwo.jpg";
+import HeadBannerThree from "../assets/bannerThree.jpg";
 import Typed from "react-typed";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 // import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -61,7 +61,6 @@ const Home = (props) => {
       );
       setFilter(filtered);
     }
-
   }, [location, shops, search]);
 
   useEffect(() => {
@@ -74,7 +73,7 @@ const Home = (props) => {
         <title>Home</title>
       </Head>
       <div className="shop_bg" style={{ zIndex: "0" }}></div>
-      <div
+      {/* <div
         name="banner"
         id="carouselExampleIndicators"
         className="carousel slide hero_image pointer-event"
@@ -84,7 +83,6 @@ const Home = (props) => {
         <ol className="carousel-indicators"></ol>
         <div className="carousel-inner text-uppercase">
           <div className="absolute z-10 text-white text_banner">
-
             <h1 className="text-intro bg-gradient-to-l from-indigo-500 via-purple-400 to-indigo-600 font-bold text-gradient drop-shadow-md">
               It&apos;s not just a food, it&apos;s an experience.
             </h1>
@@ -116,26 +114,26 @@ const Home = (props) => {
           <div className="carousel-item active">
             <Image
               className="d-block w-100 banner"
-              src={"../assets/banner1.jpg"}
-              alt={'banner'}
+              src={HeadBannerOne}
+              alt={"banner"}
             />
           </div>
           <div className="carousel-item">
             <Image
               className="d-block w-100 banner"
-              src={'../assets/banner2.jpg'}
-              alt={'banner'}
+              src={HeadBannerTwo}
+              alt={"banner"}
             />
           </div>
           <div className="carousel-item">
             <Image
               className="d-block w-100 banner"
-              src={'../assets/banner3.jpg'}
-              alt={'banner'}
+              src={HeadBannerThree}
+              alt={"banner"}
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <Element
         name="shop"
