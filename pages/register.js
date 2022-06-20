@@ -9,7 +9,7 @@ import { DataContext } from "../store/GlobalState";
 import { postData, getData } from "../utils/fetchData";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { imageUpload } from "../utils/ImageUpload";
+import { imageUpload } from "../utils/imageUpload";
 
 const Register = () => {
   const router = useRouter();
