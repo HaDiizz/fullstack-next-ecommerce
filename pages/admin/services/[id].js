@@ -86,7 +86,7 @@ const ServicesDetail = () => {
                     item.images?.map((img, index) => (
                       <div key={index} className="col-md-6">
                         <Link href={img.url}>
-                          <a target={"_blank"}>
+                          <a target={"_blank"} rel="noreferrer">
                             <Image
                               src={img.url}
                               width={200}

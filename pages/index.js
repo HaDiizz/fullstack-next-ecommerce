@@ -87,17 +87,6 @@ const Home = (props) => {
         <ol className="carousel-indicators"></ol>
         <div className="carousel-inner text-uppercase">
           <div className="absolute z-10 text-white text_banner">
-            {/* <Text
-              h1
-              className="text-intro"
-              css={{
-                textGradient: "45deg, $blue600 -20%, $pink600 50%",
-                textTransform: "uppercase",
-              }}
-              weight="bold"
-            >
-              It's not just a food, it's an experience.
-            </Text> */}
 
             <h1 className="text-intro bg-gradient-to-l from-indigo-500 via-purple-400 to-indigo-600 font-bold text-gradient drop-shadow-md">
               It's not just a food, it's an experience.

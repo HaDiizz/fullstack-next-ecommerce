@@ -286,6 +286,7 @@ const Register = () => {
                     <a
                       href="https://www.omise.co/th/api-authentication/thailand#public-key"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       อ่านรายละเอียด
                     </a>

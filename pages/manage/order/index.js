@@ -165,7 +165,7 @@ const Order = () => {
                     color="secondary"
                     placement="bottomStart"
                   >
-                    <a href={row.image} target={'_blank'}>
+                    <a href={row.image} target={'_blank'} rel="noreferrer">
                     <AiOutlineFileSearch
                       className="hover:cursor-pointer"
                       size={25}
