@@ -5,7 +5,7 @@ import { useRouter } from "next/dist/client/router";
 import { patchData, postData, getData } from "../../../utils/fetchData";
 // import { updateItem } from "../../store/Actions";
 import Link from "next/link";
-import { imageUploadArr } from "../../../utils/ImageUpload";
+import { imageUploadArr } from "../../../utils/imageUpload";
 import Loading from "../../../components/Loading";
 import { updateItem } from "../../../store/Actions";
 

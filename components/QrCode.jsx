@@ -3,7 +3,7 @@ import Script from "next/script";
 import { postData, putData } from "../utils/fetchData";
 import { DataContext } from "../store/GlobalState";
 import { Input, Row, Text } from "@nextui-org/react";
-import { imageUpload } from "../utils/ImageUpload";
+import { imageUpload } from "../utils/imageUpload";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";

@@ -5,7 +5,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { imageUpload } from "../../../utils/ImageUpload";
+import { imageUpload } from "../../../utils/imageUpload";
 import { putData } from "../../../utils/fetchData";
 import { useRouter } from "next/dist/client/router";
 import { Row, Checkbox, Input } from "@nextui-org/react";

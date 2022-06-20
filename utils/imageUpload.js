@@ -1,4 +1,4 @@
-export const imageUpload = (images) => {
+export const imageUpload = async (images) => {
 
     let imgArr = []
 
@@ -20,7 +20,7 @@ export const imageUpload = (images) => {
     return imgArr;
 }
 
-export const imageUploadArr = (images) => {
+export const imageUploadArr = async (images) => {
     // console.log(images)
     let imgArr = []
     for(const item of images) {

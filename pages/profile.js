@@ -4,7 +4,7 @@ import { DataContext } from "../store/GlobalState";
 import Link from "next/link";
 import validate from "../utils/validate";
 import { patchData } from "../utils/fetchData";
-import { imageUploadArr } from "../utils/ImageUpload";
+import { imageUploadArr } from "../utils/imageUpload";
 import { Input, Table } from "@nextui-org/react";
 import { UnLockIcon } from "../components/UnLockIcon.jsx";
 import { LockIcon } from "../components/LockIcon.jsx";

@@ -4,7 +4,7 @@ import { DataContext } from "../../../../store/GlobalState";
 import { useRouter } from "next/dist/client/router";
 import { getData, putData } from "../../../../utils/fetchData";
 import Link from "next/link";
-import { imageUploadArr } from "../../../../utils/ImageUpload";
+import { imageUploadArr } from "../../../../utils/imageUpload";
 import { updateItem } from "../../../../store/Actions";
 
 const EditItem = () => {
