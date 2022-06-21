@@ -200,8 +200,10 @@ const Home = (props) => {
   );
 };
 
-export async function getServerSideProps() {
-  const res = await getData("shop");
+export async function getServerSideProps(context) {
+  // const res = await getData("shop");
+  const data = await fetch("/api/shop");
+  const res = await data.json()
 
   return {
     props: {

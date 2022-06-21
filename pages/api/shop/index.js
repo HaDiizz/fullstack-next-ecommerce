@@ -132,23 +132,11 @@ const createShop = async (req, res) => {
 
 const getShops = async (req, res) => {
   try {
-    // const features = new APIfeatures(
-    //   Shops.find().select("-secret_key").select("-public_key"),
-    //   req.query
-    // )
-    //   .filtering()
-    //   .sorting()
-    //   .paginating();
-    // const shops = await features.query;
-    
     const shops = await Shops.find()
       .select("-secret_key")
       .select("-public_key");
 
-
-    res.json({
-      status: "success",
-      // result: shops.length,
+    return res.json({
       shops,
     });
   } catch (err) {
