@@ -202,7 +202,13 @@ const Home = (props) => {
 
 export async function getServerSideProps(context) {
   // const res = await getData("shop");
-  const data = await fetch("/api/shop");
+  const data = await fetch("/api/shop", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
   const res = await data.json()
 
   return {
