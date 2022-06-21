@@ -15,9 +15,15 @@ const Services = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(props.contacts);
-    // console.log(props.contacts);
-  }, [props.contacts]);
+    getData("contact").then((data) => {
+      setData(data.contacts);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   setData(props.contacts);
+  //   // console.log(props.contacts);
+  // }, [props.contacts]);
 
   const columns = [
     {
@@ -96,32 +102,35 @@ const Services = (props) => {
   if (auth.user.role !== "admin") return null;
 
   return (
-    <div className="justify-center text-center col-md-12 mt-[10rem] container px-5 text-white">
+    <>
       <Head>
         <title>Manage Services</title>
       </Head>
-      <DataTable
-        title="Admin Manage Contact"
-        columns={columns}
-        data={data}
-        theme="dark"
-        pagination
-        paginationPerPage={20}
-        defaultSortField="createdAt"
-        defaultSortAsc={false}
-        highlightOnHover
-      />
-    </div>
+      <div className="shop_bg" style={{ zIndex: "0" }}></div>
+      <div className="justify-center text-center col-md-12 pt-[10rem] text-white">
+        <DataTable
+          title="Admin Manage Contact"
+          columns={columns}
+          data={data}
+          theme="dark"
+          pagination
+          paginationPerPage={20}
+          defaultSortField="createdAt"
+          defaultSortAsc={false}
+          highlightOnHover
+        />
+      </div>
+    </>
   );
 };
 
-export async function getServerSideProps() {
-  const res = await getData("contact");
-  return {
-    props: {
-      contacts: res.contacts,
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   const res = await getData("contact");
+//   return {
+//     props: {
+//       contacts: res.contacts,
+//     },
+//   };
+// }
 
 export default Services;

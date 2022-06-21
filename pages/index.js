@@ -24,8 +24,15 @@ const Home = (props) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    setShop(props.shops);
-  }, [props.shops]);
+    getData('shop').then((data) => {
+      setShop(data.shops);
+    }
+    )
+  }, []);
+
+  // useEffect(() => {
+  //   setShop(props.shops);
+  // }, [props.shops]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -200,22 +207,14 @@ const Home = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  // const res = await getData("shop");
-  const data = await fetch("/api/shop", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  });
-  const res = await data.json()
+// export async function getServerSideProps() {
+//   const res = await getData("shop");
 
-  return {
-    props: {
-      shops: res.shops,
-    },
-  };
-}
+//   return {
+//     props: {
+//       shops: res.shops,
+//     },
+//   };
+// }
 
 export default Home;
