@@ -1,7 +1,7 @@
 const baseUrl = process.env.BASE_URL;
 
 export const getData = async (url, token) => {
-  const res = await fetch(`${baseUrl}/api/${url}`, {
+  const res = await fetch(`/api/${url}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const getData = async (url, token) => {
 };
 
 export const postData = async (url, post, token) => {
-  const res = await fetch(`${baseUrl}/api/${url}`, {
+  const res = await fetch(`/api/${url}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const postData = async (url, post, token) => {
 };
 
 export const putData = async (url, post, token) => {
-  const res = await fetch(`${baseUrl}/api/${url}`, {
+  const res = await fetch(`/api/${url}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export const putData = async (url, post, token) => {
 };
 
 export const patchData = async (url, post, token) => {
-  const res = await fetch(`${baseUrl}/api/${url}`, {
+  const res = await fetch(`/api/${url}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export const patchData = async (url, post, token) => {
 };
 
 export const deleteData = async (url, token) => {
-  const res = await fetch(`${baseUrl}/api/${url}`, {
+  const res = await fetch(`/api/${url}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export const deleteData = async (url, token) => {
 };
 
 export const postDataContact = async (url, post) => {
-  const res = await fetch(`${baseUrl}/api/${url}`, {
+  const res = await fetch(`/api/${url}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
