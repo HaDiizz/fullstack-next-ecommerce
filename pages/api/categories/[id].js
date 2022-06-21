@@ -45,7 +45,7 @@ const updateCategories = async (req, res) => {
       { name }
     );
     res.json({
-      msg: "Successfully Updated a category",
+      msg: "อัพเดทประเภทสินค้าสำเร็จ",
       category: {
         ...newCategory._doc,
         name,

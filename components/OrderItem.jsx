@@ -41,14 +41,16 @@ const OrderItem = ({ orderDetail, state, dispatch }) => {
             className="text-uppercase my-3 ml-3 mr-3"
             style={{ maxWidth: "600px", width: "60%" }}
           >
-            <h2 className="text-break text-white">Order {order?._id}</h2>
-            <div className="mt-4 text-secondary">
-              <h4 className="text-white">รายละเอียดออเดอร์</h4>
+            <h2 className="text-break text-white font-extrabold">
+              Order {order?._id}
+            </h2>
+            <div className="mt-4 text-white">
+              <h3 className="text-white font-extrabold">รายละเอียดออเดอร์</h3>
               <p>ชื่อ: {order.user.name}</p>
               <p>อีเมล: {order.user.email}</p>
               <p>เวลารับสินค้า: {order.time}</p>
               <p>เบอร์โทร: {order.tel}</p>
-
+              <p className="text-orange-400">หมายเหตุ: {order.note}</p>
               <h3 className="text-white">Payment</h3>
               {order.method && (
                 <h6 className="text-secondary">
@@ -72,7 +74,10 @@ const OrderItem = ({ orderDetail, state, dispatch }) => {
               </div>
 
               <div>
-                <h4 className="text-white">Order Items</h4>
+                <div className="row">
+                <h4 className="text-white pr-5">Order Items</h4>
+                <h5 className="text-white">ราคารวม: {order.total} บาท</h5>
+                </div>
                 {order.cart.map((item) => (
                   <div
                     className="row border-bottom pt-4 mx-0 p-2 justify-content-between align-items-center"

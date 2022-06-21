@@ -68,7 +68,7 @@ const createProducts = async (req, res) => {
 
     await newProduct.save();
 
-    res.json({ msg: "Success! Created a product.", newProduct });
+    res.json({ msg: "สร้างสินค้าสำเร็จ", newProduct });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }

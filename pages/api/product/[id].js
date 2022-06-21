@@ -26,7 +26,7 @@ const getProduct = async (req, res) => {
     const product = await Product.find({ shop: id });
 
     if (!product)
-      return res.status(400).json({ err: "This product does not exists." });
+      return res.status(400).json({ err: "ไม่มีสินค้า" });
 
     res.json({ product });
   } catch (err) {
@@ -52,7 +52,7 @@ const createProducts = async (req, res) => {
       category === "all" ||
       images.length === 0
     )
-      return res.status(400).json({ err: "Input can not be blank." });
+      return res.status(400).json({ err: "กรุณากรอกข้อมูลให้ครบถ้วน" });
 
     const newProduct = new Product({
       shop: id,
@@ -66,7 +66,7 @@ const createProducts = async (req, res) => {
 
     await newProduct.save();
 
-    res.json({ msg: "Success! Created a product.", newProduct });
+    res.json({ msg: "สร้างสินค้าสำเร็จ", newProduct });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }
@@ -82,7 +82,7 @@ const deleteProduct = async (req, res) => {
     const { id } = req.query;
 
     await Product.findByIdAndDelete(id);
-    res.json({ msg: "Deleted a product." });
+    res.json({ msg: "ลบสินค้าสำเร็จ" });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }

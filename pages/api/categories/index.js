@@ -31,7 +31,7 @@ const createCategories = async (req, res) => {
     // console.log(result.id);
 
     if (!name)
-      res.status(400).json({ err: "Name is empty. Please, input the name." });
+      res.status(400).json({ err: "กรุณากรอกชื่อประเภทสินค้า" });
 
     const newCategory = new Categories({
       name: name.toLowerCase(),
@@ -41,7 +41,7 @@ const createCategories = async (req, res) => {
     await newCategory.save();
 
     res.json({
-      msg: "Successfully! Created a category.",
+      msg: "สร้างประเภทสินค้าเรียบร้อยแล้ว",
       newCategory,
     });
   } catch (err) {

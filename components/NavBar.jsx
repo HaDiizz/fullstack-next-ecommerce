@@ -223,7 +223,6 @@ const NavBar = ({ handleToggleSidebar }) => {
 
           <Link
             to="shop"
-            // spy={true}
             className={isShop}
             onClick={() => scrollToPage("shop")}
           >

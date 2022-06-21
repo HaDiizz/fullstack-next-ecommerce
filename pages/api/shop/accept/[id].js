@@ -27,7 +27,7 @@ const updateAccept = async (req, res) => {
         const {accepted} = req.body
 
         await Shop.findOneAndUpdate({_id: id}, {accepted})
-        res.json({msg: 'Updated Succesfully', accepted})
+        res.json({msg: 'อัพเดทข้อมูลสำเร็จ', accepted})
 
     } catch (err) {
         return res.status(500).json({err: err.message})
@@ -44,7 +44,7 @@ const deleteUser = async (req, res) => {
         const {id} = req.query
 
         await Users.findByIdAndDelete(id)
-        res.json({msg: 'Deleted Succesfully'})
+        res.json({msg: 'ลบข้อมูลสำเร็จ'})
 
     } catch (err) {
         return res.status(500).json({err: err.message})

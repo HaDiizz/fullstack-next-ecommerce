@@ -28,7 +28,7 @@ const updateLocations = async (req, res) => {
 
     const newLocation = await Locations.findOneAndUpdate({ _id: id }, { name });
     return res.json({
-      msg: "Successfully Updated a location",
+      msg: "อัพเดทข้อมูลสำเร็จ",
       location: {
         ...newLocation._doc,
         name,
@@ -52,7 +52,7 @@ const deleteLocations = async (req, res) => {
 
     await Locations.findByIdAndDelete(id);
 
-    return res.json({ msg: "Successfully Deleted a location" });
+    return res.json({ msg: "ลบข้อมูลสำเร็จ" });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }

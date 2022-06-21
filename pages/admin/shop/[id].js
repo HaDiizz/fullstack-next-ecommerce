@@ -14,7 +14,7 @@ const ManageShopId = () => {
   const { id } = router.query;
 
   const { state, dispatch } = useContext(DataContext);
-  const { auth, users, shops } = state;
+  const { auth, users, shops, locations } = state;
 
   const [editShop, setEditShop] = useState([]);
 
@@ -23,14 +23,13 @@ const ManageShopId = () => {
 
   const [numRole, setNumRole] = useState(0);
   const [numACC, setNumACC] = useState(0);
-  // const [userAuth, setUserAuth] = useState([]);
+  const [dataLocation, setDataLocation] = useState("");
 
   useEffect(() => {
     const newArr = shops.filter((shop) => shop._id === id);
     setEditShop(newArr);
     // console.log(newArr)
   }, [shops, id]);
-
 
   useEffect(() => {
     const newArr = users.filter((user) => user?._id === editShop[0]?.user._id);
@@ -72,7 +71,6 @@ const ManageShopId = () => {
         //   setCheckSeller(false);
         // }
 
-
         if (res.err)
           return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
@@ -89,7 +87,6 @@ const ManageShopId = () => {
             "ADD_USERS"
           )
         );
-
 
         setTimeout(() => {
           // router.reload();
@@ -132,6 +129,13 @@ const ManageShopId = () => {
     // }
   };
 
+  useEffect(() => {
+    const newArr = locations.filter(
+      (item) => item._id === editShop[0]?.location
+    );
+    setDataLocation(newArr[0]?.name);
+  }, [locations, editShop]);
+
   if (!auth.user) {
     return null;
   }
@@ -142,7 +146,7 @@ const ManageShopId = () => {
   return (
     <div className="edit_user my-3 w-100 pt-[5rem]">
       <Head>
-        <title>Edit User</title>
+        <title>Edit Shop</title>
       </Head>
 
       <div>
@@ -226,7 +230,7 @@ const ManageShopId = () => {
                   <input
                     type="text"
                     id="email"
-                    defaultValue={shopOwner.location}
+                    defaultValue={dataLocation}
                     disabled
                     className="form-control"
                   />

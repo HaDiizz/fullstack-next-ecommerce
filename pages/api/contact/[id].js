@@ -35,7 +35,7 @@ const updateContacts = async (req, res) => {
     if(result.role !== 'admin') return res.status(401).json({ err: 'Unauthorized' })
     const { message, email, author } = req.body;
     const { id } = req.query;
-    if(!message) return res.status(400).json({ err: 'Message is required' })
+    if(!message) return res.status(400).json({ err: 'กรุณากรอกข้อมูลก่อนส่ง' })
     await Contact.findOneAndUpdate({ _id: id }, { status:true, message });
 
     const transporter = nodemailer.createTransport({

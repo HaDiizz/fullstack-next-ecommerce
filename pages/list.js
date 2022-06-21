@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Table, Row, Col, Tooltip, User, Text } from "@nextui-org/react";
 import { StyledBadge } from "../components/StyledBadge.jsx";
 import { IconButton } from "../components/IconButton";
@@ -12,13 +12,19 @@ import Head from "next/head";
 
 const List = () => {
   const { state, dispatch } = useContext(DataContext);
-  const { auth, lists } = state;
+  const { auth, lists, locations } = state;
+  const [dataLocation, setDataLocation] = useState("");
+
+  useEffect(() => {
+    const newArr = locations.filter((item) => item._id === lists[0]?.location);
+    setDataLocation(newArr[0]?.name);
+  }, [locations, lists]);
 
   return (
     <>
-    <Head>
-      <title>Lists</title>
-    </Head>
+      <Head>
+        <title>Lists</title>
+      </Head>
       <div className="shop_bg" style={{ zIndex: "0" }}></div>
       <Table
         className="mt-[7rem]"
@@ -62,7 +68,7 @@ const List = () => {
                 </Col>
               </Table.Cell>
               <Table.Cell>
-                <div className="text-white">{item.location}</div>
+                <div className="text-white">{dataLocation}</div>
               </Table.Cell>
               <Table.Cell>
                 <Row justify="center" align="center">

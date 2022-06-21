@@ -25,10 +25,10 @@ const updateRole = async (req, res) => {
         const {id} = req.query
         const {role} = req.body
 
-        if(role === 'admin' && !result.root) return res.status(400).json({err: "You can't change the role to admin."})
+        if(role === 'admin' && !result.root) return res.status(400).json({err: "ไม่สามารถเปลี่ยนแปลงสิทธิ์ได้"})
 
         await Users.findOneAndUpdate({_id: id}, {role})
-        res.json({msg: 'Updated Succesfully'})
+        res.json({msg: 'อัพเดทข้อมูลสำเร็จ'})
 
     } catch (err) {
         return res.status(500).json({err: err.message})
@@ -45,7 +45,7 @@ const deleteUser = async (req, res) => {
         const {id} = req.query
 
         await Users.findByIdAndDelete(id)
-        res.json({msg: 'Deleted Succesfully'})
+        res.json({msg: 'ลบข้อมูลสำเร็จ'})
 
     } catch (err) {
         return res.status(500).json({err: err.message})

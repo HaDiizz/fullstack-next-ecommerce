@@ -25,7 +25,7 @@ const createLocations = async (req, res) => {
     const { name } = req.body;
 
     if (!name)
-      res.status(400).json({ err: "Name is empty. Please, input the name." });
+      res.status(400).json({ err: "กรุณากรอกชื่อสถานที่" });
 
     const newLocations = new Location({
       name: name.toLowerCase(),
@@ -34,7 +34,7 @@ const createLocations = async (req, res) => {
     await newLocations.save();
 
     return res.json({
-      msg: "Successfully! Created a category.",
+      msg: "เพิ่มสถานที่เรียบร้อยแล้ว",
       newLocations,
     });
   } catch (err) {

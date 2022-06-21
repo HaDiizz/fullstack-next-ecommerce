@@ -25,7 +25,7 @@ const uploadInfor = async (req, res) => {
         const newUser = await Users.findOneAndUpdate({_id: result.id}, {name, avatar, telephone})
 
         res.json({
-            msg: "Update Successfully",
+            msg: "อัพเดทข้อมูลสำเร็จ",
             user: {
                 name,
                 avatar,

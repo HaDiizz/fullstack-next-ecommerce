@@ -40,6 +40,14 @@ const Register = () => {
   const [file, setFile] = useState("");
   const [isPendding, setIsPendding] = useState(false);
 
+  useEffect(() => {
+    if(auth.user) {
+      setshopData({
+        ...shopData,
+        contact: auth.user.telephone,
+    })}
+  }, [auth.user]);
+
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setshopData({ ...shopData, [name]: value });
@@ -78,53 +86,13 @@ const Register = () => {
     setIsImage(true); //set the uploaded state to true
   };
 
-  // const handleUpload = (e) => {
-  //   dispatch({ type: "NOTIFY", payload: {} });
-  //   let newImage = [];
-  //   let num = 0;
-  //   let err = "";
-  //   const files = [...e.target.files];
-  //   // console.log(files)
-
-  //   if (files.length === 0)
-  //     return dispatch({
-  //       type: "NOTIFY",
-  //       payload: { error: "Files does not exist" },
-  //     });
-
-  //   files.forEach((file) => {
-  //     if (file.size > 1024 * 1024) {
-  //       setIsImage(false);
-  //       return (err = "The file size is larger than 1 MB.");
-  //     }
-
-  //     if (file.type !== "image/jpeg" && file.type !== "image/png") {
-  //       setIsImage(false);
-  //       return (err = "The file type must be JPEG/PNG.");
-  //     }
-  //     num += 1;
-  //     if (num === 1) newImage.push(file);
-
-  //   });
-
-  //   // console.log({newImages, err})
-
-  //   if (err) {
-  //     setIsImage(false);
-  //     dispatch({ type: "NOTIFY", payload: { error: err } });
-  //   }
-
-  //   setIsImage(true);
-  //   setImage([...image, ...newImage]);
-  // };
 
   const handleChangeCheck = () => {
     setIsChecked(!isChecked);
     // isHalal = !isChecked;
     // console.log(isHalal);
   };
-  // console.log(image)
-  // console.log(file)
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -189,15 +157,6 @@ const Register = () => {
     }, 2000);
     return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
   };
-
-  // useEffect(() => {
-  //   getData(`shop`).then((res) => {
-  //     console.log(res);
-  //     if (res.err) {
-  //       setIsPendding(true);
-  //     }
-  //   });
-  // }, []);
 
   if (!auth.user) return null;
   if (auth.user.role === "seller") router.push("/manage");
@@ -340,7 +299,7 @@ const Register = () => {
                     >
                       {
                         locations.map((location, index) => (
-                          <MenuItem key={index} value={location.name}>
+                          <MenuItem key={index} value={location._id}>
                             {location.name}
                           </MenuItem>
                         ))

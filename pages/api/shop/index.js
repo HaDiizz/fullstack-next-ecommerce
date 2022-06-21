@@ -82,7 +82,7 @@ const createShop = async (req, res) => {
     await newShop.save();
     res.json({
       newShop,
-      msg: "Create Shop successfully! We will contact you to confirm access!",
+      msg: "สร้างร้านค้าสำเร็จ รอการอนุมัติจากผู้ดูแลระบบ",
     });
     // res.json({msg: 'Success! Created a product.'})
   } catch (err) {

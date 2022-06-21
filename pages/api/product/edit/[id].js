@@ -34,7 +34,7 @@ const putProduct = async (req, res) => {
       category === "all" ||
       images.length === 0
     )
-      return res.status(400).json({ err: "Input can not be blank." });
+      return res.status(400).json({ err: "กรุณากรอกข้อมูลให้ครบถ้วน" });
 
     const newProduct = await Product.findOneAndUpdate(
       { _id: id },
@@ -49,7 +49,7 @@ const putProduct = async (req, res) => {
     );
 
     res.json({
-      msg: "Success! Updated a product",
+      msg: "อัพเดทสินค้าสำเร็จ",
       product: {
         ...newProduct._doc,
         title,
@@ -76,7 +76,7 @@ const getProduct = async (req, res) => {
     const { id } = req.query;
 
     const product = await Product.findOne({ _id: id, shop: OwnShop.id }); //olds findone
-    if (!product) res.status(404).json({ err: "Product does not exits." });
+    if (!product) res.status(404).json({ err: "ไม่พบสินค้า" });
 
     return res.json({
       product: {

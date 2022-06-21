@@ -68,7 +68,7 @@ const deleteShop = async (req, res) => {
     const { id } = req.query;
 
     await Shop.findByIdAndDelete(id);
-    res.json({ msg: "Deleted Succesfully" });
+    res.json({ msg: "ลบร้านค้าสำเร็จ" });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }
@@ -89,7 +89,7 @@ const uploadInfor = async (req, res) => {
     );
 
     res.json({
-      msg: "Update Successfully",
+      msg: "อัพเดทข้อมูลสำเร็จ",
       shop: {
         ...newShop,
       },

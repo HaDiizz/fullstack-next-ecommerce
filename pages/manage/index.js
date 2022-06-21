@@ -69,15 +69,15 @@ const Manage = () => {
     }
   };
 
-  useEffect(() => {
-    const newArr = locations?.filter(
-      (location) => location?._id === shops[0]?.location
-    );
-    setDataLocation({
-      ...dataLocation,
-      name: newArr?.[0]?.name,
-    });
-  }, [locations]);
+  // useEffect(() => {
+  //   const newArr = locations?.filter(
+  //     (location) => location?._id === shops[0]?.location
+  //   );
+  //   setDataLocation({
+  //     ...dataLocation,
+  //     name: newArr[0]?.name,
+  //   });
+  // }, [locations, shops[0]?.location]);
 
   if (!auth.user) return null;
   if (auth.user.role !== "seller") return null;
@@ -229,7 +229,7 @@ const Manage = () => {
                 />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="location" className="d-block">
                   ที่อยู่
                 </label>
@@ -239,7 +239,7 @@ const Manage = () => {
                   className="form-control"
                   disabled
                 />
-              </div>
+              </div> */}
             </div>
           ))}
           <div className="col-md-6 pl-5 col-sm-12">

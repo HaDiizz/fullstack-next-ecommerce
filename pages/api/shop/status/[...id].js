@@ -24,7 +24,7 @@ const updateStatus = async (req, res) => {
         
 
         await Shop.findOneAndUpdate({_id: id}, {status, isHalal})
-        res.json({msg: 'Updated Succesfully', status, isHalal})
+        res.json({msg: 'อัพเดทข้อมูลสำเร็จ', status, isHalal})
 
     } catch (err) {
         return res.status(500).json({err: err.message})

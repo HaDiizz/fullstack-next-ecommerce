@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-// import HeadBannerOne from "../assets/bannerOne.jpg";
-// import HeadBannerTwo from "../assets/bannerTwo.jpg";
-// import HeadBannerThree from "../assets/bannerThree.jpg";
+import HeadBannerOne from "../assets/bannerOne.jpg";
+import HeadBannerTwo from "../assets/bannerTwo.jpg";
+import HeadBannerThree from "../assets/bannerThree.jpg";
 import Typed from "react-typed";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, Element } from "react-scroll";
@@ -71,7 +71,7 @@ const Home = (props) => {
         <title>Home</title>
       </Head>
       <div className="shop_bg" style={{ zIndex: "0" }}></div>
-      {/* <div
+      <div
         name="banner"
         id="carouselExampleIndicators"
         className="carousel slide hero_image pointer-event"
@@ -131,7 +131,7 @@ const Home = (props) => {
             />
           </div>
         </div>
-      </div> */}
+      </div>
 
       <Element
         name="shop"

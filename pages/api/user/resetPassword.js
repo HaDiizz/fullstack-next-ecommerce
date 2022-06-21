@@ -23,7 +23,7 @@ const resetPassword = async (req, res) => {
 
         await Users.findOneAndUpdate({_id: result.id}, {password: passwordHash})
 
-        res.json({ msg: "Update Successfully" })
+        res.json({ msg: "อัพเดทข้อมูลสำเร็จ" })
 
     } catch (err) {
         return res.status(500).json({err: err.message})
