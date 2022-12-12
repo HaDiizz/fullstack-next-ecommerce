@@ -24,10 +24,9 @@ const Home = (props) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    getData('shop').then((data) => {
+    getData("shop").then((data) => {
       setShop(data.shops);
-    }
-    )
+    });
   }, []);
 
   // useEffect(() => {
@@ -152,24 +151,15 @@ const Home = (props) => {
                 width="100%"
                 autoComplete="on"
                 contentRightStyling={false}
-                placeholder="Type your message..."
+                placeholder="ค้นหาร้านค้า"
                 onChange={(e) => handleSearch(e)}
                 contentRight={
-                  <BsSearch className="text-black pr-2" size={25} />
+                  <BsSearch className="text-white pr-2" size={20} />
                 }
               />
             </div>
             <div className="col-md-4">
               <Select
-                // blurOnSelect={true}
-                // MenuProps={{
-                //   PaperProps: {
-                //     onScroll: (event) => {
-                //       console.log(event);
-                //       console.log("we scroll");
-                //     }
-                //   },
-                // }}
                 className="bg-white scrollable"
                 defaultValue={"all"}
                 id="location"
@@ -182,14 +172,17 @@ const Home = (props) => {
                 aria-label="location"
                 onChange={(e) => handleLocation(e)}
               >
-                <MenuItem style={{ fontFamily: "Prompt" }} value="all">
+                <MenuItem
+                  style={{ fontFamily: "Prompt", color: "black" }}
+                  value="all"
+                >
                   แสดงทั้งหมด
                 </MenuItem>
                 {locations.map((location) => {
                   return (
                     <MenuItem
                       key={location._id}
-                      style={{ fontFamily: "Prompt" }}
+                      style={{ fontFamily: "Prompt", color: "black" }}
                       value={location._id}
                     >
                       {location.name}

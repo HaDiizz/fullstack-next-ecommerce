@@ -4,9 +4,16 @@ import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { Link, scroller } from "react-scroll";
-import { MdOutlineZoomOutMap } from "react-icons/md";
 import ModalSignin from "./ModalSignin";
-import { Row, Button, Tooltip, User, css, Text } from "@nextui-org/react";
+import {
+  Row,
+  Tooltip,
+  User,
+  Text,
+  Dropdown,
+  Avatar,
+  Grid,
+} from "@nextui-org/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { DataContext } from "../store/GlobalState";
@@ -29,7 +36,7 @@ const NavBar = ({ handleToggleSidebar }) => {
     return (
       <div className="button-login ml-5 ">
         <Row>
-          <NextLink href="/profile">
+          {/* <NextLink href="/profile">
             <a>
               <User
                 pointer="true"
@@ -39,9 +46,75 @@ const NavBar = ({ handleToggleSidebar }) => {
                 src={auth.user.avatar}
               />
             </a>
-          </NextLink>
+          </NextLink> */}
 
-          <div className="btn-group show text-white dropdown pt-1">
+          <Dropdown placement="bottom-left">
+            <Dropdown.Trigger>
+              <User src={auth.user.avatar} css={{ p: 0 }}>
+                <Row>
+                  <Text size={14} css={{ tt: "capitalize", color: "white" }}>
+                    {auth.user.name}
+                  </Text>
+                </Row>
+                {auth.user.role}
+              </User>
+            </Dropdown.Trigger>
+            <Dropdown.Menu color="primary" aria-label="User Actions">
+              <Dropdown.Item key="profile" css={{ height: "$18" }}>
+                <Text b color="primary" css={{ d: "flex" }}>
+                  {auth.user.email}
+                </Text>
+              </Dropdown.Item>
+              <Dropdown.Item key="settings" withDivider>
+                <NextLink href="/profile">
+                  <a className="text-black">โปรไฟล์</a>
+                </NextLink>
+              </Dropdown.Item>
+              <Dropdown.Item key="team_settings">
+                {auth.user && auth.user.role === "admin" ? (
+                  <NextLink href="/admin/shop">
+                    <a className="text-black">ร้านค้า</a>
+                  </NextLink>
+                ) : auth.user.role === "seller" ? (
+                  <NextLink href="/manage">
+                    <a className="text-black">จัดการร้านค้า</a>
+                  </NextLink>
+                ) : (
+                  <NextLink href="/register">
+                    <a className="text-black">ลงทะเบียนร้านค้า</a>
+                  </NextLink>
+                )}
+              </Dropdown.Item>
+              {auth?.user && auth?.user.role === "admin" && (
+                <Dropdown.Item key="users">
+                  <NextLink href="/admin/user">
+                    <a className="text-black">ผู้ใช้งาน</a>
+                  </NextLink>
+                </Dropdown.Item>
+              )}
+              {auth.user && auth.user.role === "admin" && (
+                <Dropdown.Item key="services">
+                  <NextLink href="/admin/services">
+                    <a className="text-black">การบริการ</a>
+                  </NextLink>
+                </Dropdown.Item>
+              )}
+              {auth.user && auth.user.role === "admin" && (
+                <Dropdown.Item key="location">
+                  <NextLink href="/admin/location">
+                    <a className="text-black">สถานที่</a>
+                  </NextLink>
+                </Dropdown.Item>
+              )}
+
+              <Dropdown.Item key="logout" color="error" withDivider>
+                <button onClick={handleLogout}>ออกจากระบบ</button>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <>
+            {/* <div className="btn-group show text-white dropdown pt-1">
             <span
               className="dropdown-toggle"
               href="#"
@@ -130,7 +203,8 @@ const NavBar = ({ handleToggleSidebar }) => {
                 Logout
               </button>
             </div>
-          </div>
+          </div> */}
+          </>
         </Row>
       </div>
     );
@@ -252,7 +326,7 @@ const NavBar = ({ handleToggleSidebar }) => {
         {Object.keys(auth).length === 0 ? (
           <div className="button-login ml-5">
             <button
-              className="px-6 py-2 rounded-2xl text-white outline outline-[2px] hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+              className="px-6 py-2 rounded-2xl text-white outline outline-[2px] hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 account_btn"
               onClick={handler}
             >
               Account

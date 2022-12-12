@@ -4,6 +4,19 @@ import { DataProvider } from "../store/GlobalState";
 import { SSRProvider } from "@react-aria/ssr";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import Head from "next/head";
+import { createTheme, NextUIProvider } from "@nextui-org/react";
+
+const darkTheme = createTheme({
+  type: "dark",
+  theme: {
+    colors: {
+      primary: "#FF0095",
+      primaryLight: "#582A87",
+      secondary: "#2D2D2D",
+      secondaryDark: "#8c8c8c",
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,7 +31,8 @@ function MyApp({ Component, pageProps }) {
         <meta name="author" content="Dev Ecommerce Web" />
         <meta name="keywords" content="Dev Ecommerce Web" />
       </Head>
-      <script
+<>
+      {/* <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossOrigin="anonymous"
@@ -29,12 +43,15 @@ function MyApp({ Component, pageProps }) {
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossOrigin="anonymous"
         async
-      />
+      /> */}
+</>
       <SSRProvider>
         <DataProvider>
-          <Layouts>
-            <Component {...pageProps} />
-          </Layouts>
+            <Layouts>
+          {/* <NextUIProvider theme={darkTheme}> */}
+              <Component {...pageProps} />
+          {/* </NextUIProvider> */}
+            </Layouts>
         </DataProvider>
       </SSRProvider>
     </>

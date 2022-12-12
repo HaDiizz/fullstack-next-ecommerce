@@ -65,9 +65,9 @@ const ShopItem = ({ shop }) => {
           }}
         >
           {shop.status ? (
-            <h2 className="text-success pb-1 pr-1">Open</h2>
+            <p className="text-success pb-1 pr-1">Open</p>
           ) : (
-            <h2 className="text-danger pb-1 pr-1">Closed</h2>
+            <p className="text-danger pb-1 pr-1">Closed</p>
           )}
         </span>
 

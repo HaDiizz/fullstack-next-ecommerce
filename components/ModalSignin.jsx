@@ -93,9 +93,12 @@ const ModalSignin = ({ visible, setVisible }) => {
       return dispatch({ type: "NOTIFY", payload: { error: res.err } });
     }
 
-    if(res.user.isVerified === false){
+    if (res.user.isVerified === false) {
       // closeHandler();
-      return dispatch({ type: "NOTIFY", payload: { error: "Please verify your email" } });
+      return dispatch({
+        type: "NOTIFY",
+        payload: { error: "Please verify your email" },
+      });
     }
 
     setUserData(initialState);
@@ -118,9 +121,9 @@ const ModalSignin = ({ visible, setVisible }) => {
     return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
   };
 
-  // useEffect(() => {
-  //   if (Object.keys(auth).length !== 0) router.push("/");
-  // }, [auth]);
+  useEffect(() => {
+    if (Object.keys(auth).length !== 0) closeHandler();
+  }, [auth]);
 
   return (
     <>
@@ -177,13 +180,13 @@ const ModalSignin = ({ visible, setVisible }) => {
             </Modal.Body>
             <Modal.Footer>
               <button
-                className="px-5 py-2 rounded text-white bg-red-600"
+                className="px-5 py-2 rounded text-white bg-neutral-600"
                 onClick={closeHandler}
               >
                 ปิด
               </button>
               <button
-                className="px-4 py-2 rounded text-white bg-blue-600"
+                className="px-4 py-2 rounded text-white bg-indigo-600"
                 onClick={handleLogin}
               >
                 เข้าสู่ระบบ
@@ -285,13 +288,13 @@ const ModalSignin = ({ visible, setVisible }) => {
             </Modal.Body>
             <Modal.Footer>
               <button
-                className="px-5 py-2 rounded text-white bg-red-600"
+                className="px-5 py-2 rounded text-white bg-neutral-600"
                 onClick={closeHandler}
               >
                 ปิด
               </button>
               <button
-                className="px-4 py-2 rounded text-white bg-blue-600"
+                className="px-4 py-2 rounded text-white bg-indigo-600"
                 onClick={handleSubmit}
               >
                 สมัครสมาชิก

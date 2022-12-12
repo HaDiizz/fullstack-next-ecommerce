@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   .text-gradient {
     background-clip: text;
@@ -232,15 +231,12 @@ a {
 
 /* website homepage banner */
 .hero_image {
-  /* height: 100rem; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
   max-height: 745px;
-  /* filter: blur(5px); */
   top: 0;
-  /* position: fixed; */
   overflow-x: hidden;
 }
 
@@ -252,6 +248,15 @@ a {
   background-blend-mode: darken;
   filter: brightness(20%);
 }
+
+@media screen and (max-width: 410px) {
+  .text_banner {
+    font-size: 50%;
+    padding-top: 4rem;
+  }
+}
+
+/* ---------------------------------- */
 
 .dropdown-menu {
   background: #191919;
@@ -328,7 +333,6 @@ a {
   opacity: 0.8;
   border-radius: 50px 50px 5px 5px;
 }
-
 
 @media (max-width: 1009px) {
   .carousel-control-next-icon {

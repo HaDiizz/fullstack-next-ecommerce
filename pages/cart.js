@@ -107,6 +107,7 @@ const Cart = () => {
         type: "NOTIFY",
         payload: { error: "กรุณาเข้าสู่ระบบเพื่อดำเนินการต่อ" },
       });
+      
     if (!time || !tel)
       return dispatch({
         type: "NOTIFY",
