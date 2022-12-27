@@ -260,7 +260,6 @@ const NavBar = ({ handleToggleSidebar }) => {
           </Tooltip>
         </div>
       </header>
-
       <ModalSignin visible={visible} setVisible={setVisible} />
     </>
   );
