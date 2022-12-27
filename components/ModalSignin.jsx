@@ -39,13 +39,11 @@ const ModalSignin = ({ visible, setVisible }) => {
   const closeHandler = (e) => {
     e?.preventDefault();
     setVisible(false);
-    // setUserData(initialState);
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     setIsSignUp(!isSignUp);
-    // setUserData(initialState);
   };
 
   const handleChangeInput = (e) => {
@@ -62,12 +60,10 @@ const ModalSignin = ({ visible, setVisible }) => {
       return dispatch({ type: "NOTIFY", payload: { error: errMsg } });
     }
 
-    // console.log(errMsg)
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/register", userData);
 
-    // console.log(res)
     if (res.err) {
       closeHandler();
       return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -87,7 +83,6 @@ const ModalSignin = ({ visible, setVisible }) => {
 
     const res = await postData("auth/login", { email, password });
 
-    // console.log(res)
     if (res.err) {
       // closeHandler();
       return dispatch({ type: "NOTIFY", payload: { error: res.err } });

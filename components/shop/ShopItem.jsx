@@ -24,18 +24,15 @@ const ShopItem = ({ shop }) => {
   useEffect(() => {
     const newArr = lists.filter((list) => list._id === shop._id);
     setDataList(newArr);
-    // console.log(newArr)
   }, [lists]);
 
   useEffect(() => {
     const newArr = locations.filter(
       (location) => location._id === shop.location
     );
-    // console.log(newArr);
     setDataLocation(newArr[0]?.name);
   }, [locations]);
 
-  // console.log("SHOP= "+shop)
   return (
     <motion.div layout>
       <div
@@ -51,8 +48,6 @@ const ShopItem = ({ shop }) => {
         <span
           className="absolute pl-3 pt-3 uppercase bg-black span_status"
           style={{
-            // top: "0",
-            // left: "0",
             fontWeight: "900",
             padding: "3px 7px",
             paddingRight: "9px",
@@ -74,8 +69,6 @@ const ShopItem = ({ shop }) => {
         <span
           className="absolute pt-2 uppercase span_list"
           style={{
-            // top: "0",
-            // left: "0",
             fontWeight: "900",
             background: "#ffffffc2",
             padding: "3px 7px",
@@ -100,10 +93,6 @@ const ShopItem = ({ shop }) => {
         </span>
         <div className="content text-white p-3 pt-2 pb-2">
           <h3>{shop.shopName}</h3>
-          {/* <p className="container" style={{ fontSize: "10px" }}>
-            {shop.detail.substring(0, 100)}...
-          </p> */}
-          {/* <p>ติดต่อ : {shop.contact}</p> */}
           <p>สถานที่ : {dataLocation}</p>
           <p>ประเภทร้านอาหาร : {shop.isHalal ? "รองรับฮาลาล" : "ทั่วไป"}</p>
           <ul>

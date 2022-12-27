@@ -122,26 +122,12 @@ export const DataProvider = ({ children }) => {
           dispatch({ type: "ADD_USERS", payload: res.users });
         });
       }
-
-      // const fetchUpdateData = async () => {
-      //   getData("order", auth.token).then((res) => {
-      //     if (res.err)
-      //       return dispatch({ type: "NOTIFY", payload: { error: res.err } });
-
-      //     dispatch({ type: "ADD_ORDERS", payload: res.orders });
-      //   });
-      // };
-      // const interval = setInterval(() => {
-      //   fetchUpdateData();
-      // }, 1000);
-      // return () => clearInterval(interval);
     } else {
       dispatch({ type: "ADD_ORDERS", payload: [] });
       dispatch({ type: "ADD_USERS", payload: [] });
       dispatch({ type: "ADD_SHOP", payload: [] });
       dispatch({ type: "ADD_CATEGORIES", payload: [] });
       dispatch({ type: "ADD_PRODUCTS", payload: [] });
-      // dispatch({ type: "ADD_LOCATIONS", payload: [] });
       dispatch({ type: "ADD_MANAGE_ORDER", payload: [] });
 
     }

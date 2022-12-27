@@ -57,11 +57,6 @@ const OrderItem = ({ orderDetail, state, dispatch }) => {
                   Method: <em>{order.method}</em>
                 </h6>
               )}
-              {/* {order.paymentId && (
-                <p>
-                  PaymentID: <em>{order.paymentId}</em>
-                </p>
-              )} */}
               <div
                 className={`alert ${
                   order.paid ? "alert-success" : "alert-danger"

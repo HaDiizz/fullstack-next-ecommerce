@@ -16,28 +16,10 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
         return prev + item.price * item.quantity;
       }, 0);
       setTotal(res);
-      // console.log(res)
     };
 
     getTotal();
   });
-
-  // if (cart.length === 0)
-  // return (
-  //   <>
-  //     <h1
-  //       style={{
-  //         textAlign: "center",
-  //         marginTop: "15rem",
-  //         letterSpacing: "10px",
-  //         textTransform: "uppercase",
-  //         opacity: "0.7",
-  //       }}
-  //     >
-  //       Cart is empty
-  //     </h1>
-  //   </>
-  // );
 
   return (
     <>
@@ -100,9 +82,6 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
                               <p>{item.price} บาท</p>
                             </div>
                           </div>
-                          {/* <div className="col-md-6">
-                          <p>{item.price} บาท</p>
-                        </div> */}
                         </div>
 
                         <div className="row pt-5 flex pl-3">

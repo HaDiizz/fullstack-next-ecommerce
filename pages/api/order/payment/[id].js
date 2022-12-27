@@ -24,7 +24,6 @@ const getOrders = async (req, res) => {
   try {
     const result = await auth(req, res);
     const shop = await shopOwner(req, res);
-    // const shop = await Shop.findOne({ user: result.id });
     let orders;
     if (result.role === "admin") {
       orders = await Order.find().populate("user", "-password");
@@ -48,14 +47,10 @@ const getOrders = async (req, res) => {
 
 const updateOrder = async (req, res) => {
   try {
-    // const result = await auth(req, res);
-    // console.log(result)
+
     const { id } = req.query;
     const { status, method, image, dateOfPayment, paymentId } = req.body;
     console.log(req.body);
-
-    // if (result.role !== "seller")
-    //   return res.status(400).json({ err: "Authentication is not valid." });
 
     await Order.findOneAndUpdate(
       { _id: id },

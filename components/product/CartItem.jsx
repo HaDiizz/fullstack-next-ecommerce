@@ -42,7 +42,6 @@ const CartItem = ({ item, dispatch, cart }) => {
           <button
             className="btn btn-outline-secondary"
             onClick={() => dispatch(increase(cart, item._id))}
-            // disabled={item.quantity === item.inStock ? true : false}
           >
             {" "}
             +{" "}

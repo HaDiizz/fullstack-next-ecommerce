@@ -60,7 +60,6 @@ const Register = () => {
       setImage(URL.createObjectURL(e.target.files[0]));
       setFile(e.target.files[0]);
     }
-    // console.log(file);
     if (!file) {
       return dispatch({
         type: "NOTIFY",
@@ -89,8 +88,6 @@ const Register = () => {
 
   const handleChangeCheck = () => {
     setIsChecked(!isChecked);
-    // isHalal = !isChecked;
-    // console.log(isHalal);
   };
 
 
@@ -107,7 +104,6 @@ const Register = () => {
     }
 
     if (file) media = await imageUpload(file);
-    // console.log(media);
     const res = await postData(
       "shop",
       {
@@ -122,7 +118,6 @@ const Register = () => {
       },
       auth.token
     );
-    // console.log(res)
     if (res.err) {
       setIsImage(false);
       setIsChecked(false);
@@ -137,7 +132,6 @@ const Register = () => {
         isHalal: false,
       });
       dispatch({ type: "NOTIFY", payload: { error: res.err } });
-      // return router.reload();
     }
 
     setIsImage(false);

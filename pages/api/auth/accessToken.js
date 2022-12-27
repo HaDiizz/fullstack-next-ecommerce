@@ -32,7 +32,6 @@ export default async (req, res) => {
         })
 
     } catch (err) {
-        // res.status(500).json({err: err.message})
         res.status(500).json({err: "Your session has been expired. Please refresh your app."})
     }
 }

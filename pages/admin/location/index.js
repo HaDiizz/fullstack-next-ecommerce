@@ -30,22 +30,16 @@ const Location = () => {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     let res;
-    // if edit
     if (id) {
       res = await putData(`locations/${id}`, { name }, auth.token);
 
-      // console.log(res)
 
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
-      // console.log(res) //join value ._doc in api/categories/[id].js
-
       dispatch(updateItem(locations, id, res.location, "ADD_LOCATIONS"));
     } else {
       res = await postData("locations", { name }, auth.token);
-
-      // console.log(res)
 
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -53,7 +47,7 @@ const Location = () => {
       dispatch({
         type: "ADD_LOCATIONS",
         payload: [...locations, res.newLocations],
-      }); //Realtime->add item to state
+      }); 
     }
 
     setName("");
@@ -63,7 +57,6 @@ const Location = () => {
   };
 
   const handleEditLocation = (location) => {
-    // console.log(category)
     setId(location._id);
     setName(location.name);
   };
@@ -109,10 +102,6 @@ const Location = () => {
               {location?.name}
               <div style={{ cursor: "pointer" }} className="flex space-x-5">
                 <FaEdit onClick={() => handleEditLocation(location)} />
-                {/* <i
-                className="fas fa-edit mr-2 text-info"
-                onClick={() => handleEditCategory(category)}
-              ></i> */}
                 <RiDeleteBin6Line
                   className="text-danger"
                   title="Remove"

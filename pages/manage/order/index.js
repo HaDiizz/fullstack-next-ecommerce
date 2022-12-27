@@ -67,13 +67,10 @@ const Order = () => {
   };
 
   const columns =
-    // useMemo (() =>
     [
       {
         name: "Order ID",
-        // sortable: true,
         sortField: "id",
-        // hide: "sm",
         selector: (row) => (
           <Link href={`/manage/order/${row._id}`}>
             <a>
@@ -88,21 +85,18 @@ const Order = () => {
         sortable: true,
         sortField: "name",
         selector: (row) => row.user.name,
-        // hide: "sm",
       },
       {
         name: "เบอร์โทร",
         sortable: true,
         sortField: "telephone",
         selector: (row) => row.user.telephone,
-        // hide: "sm",
       },
       {
         name: "เวลาออเดอร์",
         sortable: true,
         sortField: "createdAt",
         selector: (row) => moment(row.createdAt).format("LLL"),
-        // hide: "sm",
       },
       {
         name: "เวลารับออเดอร์",
@@ -139,7 +133,6 @@ const Order = () => {
       },
       {
         name: "สถานะออเดอร์",
-        // sortable: true,
         sortField: "status",
         selector: (row) =>
           row?.status === 0 ? (
@@ -169,7 +162,6 @@ const Order = () => {
                     <AiOutlineFileSearch
                       className="hover:cursor-pointer"
                       size={25}
-                    //   onClick={handler}
                     />
                     </a>
                   </Tooltip>
@@ -187,19 +179,10 @@ const Order = () => {
                   />
                 </Tooltip>{" "}
               </Row>
-              {/* <Modal noPadding open={visible} onClose={closeHandler}>
-                <Modal.Header
-                  css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}
-                ></Modal.Header>
-                <Modal.Body>
-                  <a href="" target={'_blank'}>{row.image}</a>
-                </Modal.Body>
-              </Modal> */}
             </>
           ) : (
             ""
           ),
-        // hide: "sm",
       },
       {
         name: "Cancel",
@@ -255,8 +238,6 @@ const Order = () => {
         paginationPerPage={20}
         defaultSortField="createdAt"
         defaultSortAsc={false}
-        // fixedHeader
-        // fixedHeaderScrollHeight="450px"
         highlightOnHover
       />
     </div>

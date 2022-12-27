@@ -19,10 +19,8 @@ export default async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    // console.log(req.body)
     const { name, email, password, cf_password, telephone } = req.body;
 
-    // console.log(email)
 
     const errMsg = validate(name, email, password, cf_password, telephone);
 

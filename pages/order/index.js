@@ -105,16 +105,6 @@ const Order = () => {
           ) : (
             <span className="badge badge-danger">ยกเลิก</span>
           ),
-        // conditionalCellStyles: [
-        //   {
-        //     when: (row) => row.status,
-        //     classNames: ["text-success"],
-        //     style: {
-        //       fontWeight: "bold",
-        //     },
-        //   },
-        // ],
-        // hide: "sm",
       },
       {
         name: "Action",
@@ -166,8 +156,6 @@ const Order = () => {
         paginationPerPage={20}
         defaultSortField="createdAt"
         defaultSortAsc={false}
-        // fixedHeader
-        // fixedHeaderScrollHeight="450px"
         highlightOnHover
       />
     </div>

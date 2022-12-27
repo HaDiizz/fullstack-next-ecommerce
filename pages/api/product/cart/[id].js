@@ -1,7 +1,6 @@
 import connectDB from "../../../../utils/connectDB";
 import Product from "../../../../models/productModel";
 import auth from "../../../../middleware/auth";
-// import Shop from "../../../../models/shopModel";
 
 connectDB();
 
@@ -47,11 +46,8 @@ const getProduct = async (req, res) => {
             if(!product) res.status(400).json({err: 'ไม่พบสินค้า'})
 
             return res.json({product})
-        // }
 
     } catch (err) {
         return res.status(500).json({err: err.message});
-        // return ;
-
     }
 }

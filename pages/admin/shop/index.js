@@ -23,12 +23,6 @@ const AdminManageShop = () => {
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
 
-  // useEffect(() => {
-  //   if (auth.user) {
-  //     setDropdown(shops);
-  //   }
-  // }, [shops]);
-
   const handleSelectAccepted = (e) => {
     const value = e.target.value;
     if (value === "all") {
@@ -82,14 +76,6 @@ const AdminManageShop = () => {
             </Select>
           </FormControl>
           <div className="pt-[0.8rem]">
-            {/* <Input
-              width="200%"
-              placeholder="Name"
-              color="primary"
-              name="name"
-              // value={name}
-              onChange={e => setSearch(e.target.value)}
-            /> */}
           </div>
         </Row>
         <div className="my-3 table-responsive pb-5">
@@ -129,9 +115,6 @@ const AdminManageShop = () => {
                   <td className="p-2">{shop.user.name}</td>
                   <td className="p-2">{shop.isHalal ? "ใช่" : "ไม่ใช่"}</td>
                   <td className="p-2">
-                    {/* {shop.createdAt.split(" ")[0].split("T")[1].split(".")[0] +
-                      " - " +
-                      new Date(shop.createdAt).toDateString()} */}
                     {moment(shop.createdAt).locale("th").format("llll")}
                   </td>
                   <td className="p-2">

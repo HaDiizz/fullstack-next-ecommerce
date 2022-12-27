@@ -1,15 +1,5 @@
 import dotenv from 'dotenv';
 dotenv.config();
-// import Omise from "omise";
-
-
-// const baseUrl = process.env.BASE_URL
-
-
-// const omise = Omise({
-//   publicKey: process.env.OMISE_PUBLIC_KEY,
-//   secretKey: process.env.OMISE_SECRET_KEY,
-// });
 
 export const createCustomer = (email, description, card, omise) => {
   return new Promise((resolve, reject) => {

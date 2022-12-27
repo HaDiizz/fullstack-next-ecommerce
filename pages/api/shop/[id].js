@@ -10,7 +10,6 @@ export default async (req, res) => {
   switch (req.method) {
     case "PATCH":
       await updateRole(req, res);
-      // await updateAccept(req, res)
       break;
     case "DELETE":
       await deleteShop(req, res);
@@ -26,7 +25,6 @@ export default async (req, res) => {
 
 const updateRole = async (req, res) => {
   try {
-    // console.log(req.body)
 
     const result = await auth(req, res);
     if (result.role !== "admin" && !result.root)
@@ -42,22 +40,6 @@ const updateRole = async (req, res) => {
   }
 };
 
-// const updateAccept = async (req, res) => {
-//     try {
-//         const result = await auth(req, res)
-//         if(result.role !== 'admin' || !result.root)
-//             return res.status(400).json({err: "Authentication is not valid."})
-
-//         const {id} = req.query
-//         const {accepted} = req.body
-
-//         await Users.findOneAndUpdate({_id: id}, {accepted})
-//         res.json({msg: 'Updated Succesfully'})
-
-//     } catch (err) {
-//         return res.status(500).json({err: err.message})
-//     }
-// }
 
 const deleteShop = async (req, res) => {
   try {
@@ -76,7 +58,6 @@ const deleteShop = async (req, res) => {
 
 const uploadInfor = async (req, res) => {
   try {
-    // const result = await auth(req, res)
     const { logo, shopName, contact, detail, location, public_key, secret_key } = req.body;
     const { id } = req.query;
 

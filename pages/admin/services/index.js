@@ -20,11 +20,6 @@ const Services = (props) => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   setData(props.contacts);
-  //   // console.log(props.contacts);
-  // }, [props.contacts]);
-
   const columns = [
     {
       name: "Title",

@@ -15,9 +15,7 @@ export default async (req, res) => {
 const verifyEmail = async (req, res) => {
   try {
     const {id} = req.query;
-    // console.log(id);
     const userToken = await Token.findOne({token: id});
-    // console.log(userToken);
 
     if (userToken) {
       const user = await Users.findById(userToken.userId);

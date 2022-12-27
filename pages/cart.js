@@ -20,7 +20,6 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   const [tel, setTel] = useState("");
   const [note, setNote] = useState("");
-  // const [payment, setPayment] = useState(false);
 
   const [callback, setCallback] = useState(false);
   const router = useRouter();
@@ -34,7 +33,6 @@ const Cart = () => {
         return prev + item.price * item.quantity;
       }, 0);
       setTotal(res);
-      // console.log(res)
     };
 
     getTotal();
@@ -53,7 +51,6 @@ const Cart = () => {
       const updateCart = async () => {
         for (const items of cartLocal) {
           const res = await getData(`product/cart/${items._id}`);
-          //   console.log(res);
           const { _id, title, images, price, inStock, shop } = res.product;
           if (inStock === true) {
             newArr.push({
@@ -73,34 +70,6 @@ const Cart = () => {
     }
   }, [callback]);
 
-  //   useEffect(() => {
-  //     const cartLocal = JSON.parse(localStorage.getItem("__next__cart"));
-  //     if (cartLocal && cartLocal.length > 0) {
-  //       let newArr = [];
-  //       const updateCart = async () => {
-  //         for (const item of cartLocal) {
-  //           const res = await getData(`products/edit/${item._id}`);
-  //           console.log(res)
-  //           const { _id, title, images, price, inStock } = res;
-  //           if (inStock === true) {
-  //             newArr.push({
-  //               _id,
-  //               title,
-  //               images,
-  //               price,
-  //               inStock,
-  //               quantity: item.quantity < 1 ? 1 : item.quantity,
-  //             });
-  //           }
-  //         }
-
-  //         dispatch({ type: "ADD_CART", payload: newArr });
-  //       };
-
-  //       updateCart();
-  //     }
-  //   }, [callback]);
-
   const handlePayment = async () => {
     if (!auth.user)
       return dispatch({
@@ -114,7 +83,17 @@ const Cart = () => {
         payload: { error: "กรุณากรอกเบอร์โทร/เวลาในการรับสินค้าให้ครบถ้วน" },
       });
 
-    // setPayment(true);
+    if (cart.length > 0) {
+      const res = await getData(`shop/${cart[0].shop}`);
+      if (!res.shop.status) {
+        return dispatch({
+              type: "NOTIFY",
+              payload: {
+                error: `ร้านค้า (${res.shop.shopName}) ปิดแล้ว`,
+              },
+            });
+      }
+    }
 
     let newCart = [];
     for (const item of cart) {
@@ -153,34 +132,12 @@ const Cart = () => {
         dispatch({ type: "ADD_ORDERS", payload: [...orders, newOrder] });
 
         dispatch({ type: "NOTIFY", payload: { success: res.msg } });
-        // return router.push(`/order/${res.newOrder._id}`)
         return router.push(`/order/${res.newOrder._id}`);
       }
     );
-    // This function shows a transaction success message to your buyer.
-    // console.log(data)
-    // alert('Transaction completed by ' + details.payer.name.given_name);
   };
 
-  // if (cart.length === 0)
-  //   return (
-  //     <>
-  //       <div className="shop_bg" style={{ zIndex: "0" }}></div>
-  //       <h1
-  //         style={{
-  //           textAlign: "center",
-  //           marginTop: "15rem",
-  //           letterSpacing: "10px",
-  //           textTransform: "uppercase",
-  //           opacity: "0.7",
-  //           color: "white",
-  //         }}
-  //       >
-  //         Cart is empty
-  //       </h1>
-  //     </>
-  //   );
-
+  // Set time
   var newDateObj = moment(new Date()).add(15, "m").toDate();
 
   return (
@@ -192,18 +149,6 @@ const Cart = () => {
       <div className="row mx-auto pt-5 ml-5 mr-5">
         {cart.length === 0 ? (
           <div className="h-screen w-full flex flex-wrap justify-center fixed">
-            {/* <h1
-              className="text-center flex flex-col items-center justify-center"
-              style={{
-                textAlign: "center",
-                letterSpacing: "10px",
-                textTransform: "uppercase",
-                opacity: "0.9",
-                color: "white",
-              }}
-            >
-              Cart is empty
-            </h1> */}
             <Text
               className="text-center flex flex-col items-center justify-center"
               b
@@ -284,7 +229,6 @@ const Cart = () => {
                     <TimePicker
                       style={{ maxWidth: "250px" }}
                       className="text-dark"
-                      // label="Time to receive"
                       value={value}
                       onChange={(newValue) => {
                         setValue(newValue);

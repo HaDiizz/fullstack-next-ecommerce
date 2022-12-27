@@ -47,9 +47,6 @@ const deleteLocations = async (req, res) => {
 
     const { id } = req.query;
 
-    // const shops = await Shops.findOne({location: id})
-    // if(shops) return res.status(400).json({err: "Please delete all products with a relationship."})
-
     await Locations.findByIdAndDelete(id);
 
     return res.json({ msg: "ลบข้อมูลสำเร็จ" });

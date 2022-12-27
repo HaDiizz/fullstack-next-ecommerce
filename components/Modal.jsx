@@ -11,14 +11,11 @@ const Modal = () => {
 
   const router = useRouter();
 
-  // console.log(modal.data)
-  // console.log(modal.id)
 
   const deleteUser = (item) => {
     dispatch(deleteItem(item.data, item.id, item.type));
 
     deleteData(`user/${item.id}`, auth.token).then((res) => {
-      // console.log(res)
 
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -29,7 +26,6 @@ const Modal = () => {
 
   const deleteCategories = (item) => {
     deleteData(`categories/${item.id}`, auth.token).then((res) => {
-      // console.log(res)
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
@@ -42,11 +38,9 @@ const Modal = () => {
     dispatch(deleteItem(item.data, item.id, item.type));
     dispatch({ type: "NOTIFY", payload: { loading: true } });
     deleteData(`product/${item.id}`, auth.token).then((res) => {
-      // console.log(res)
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
       dispatch({ type: "NOTIFY", payload: { success: res.msg } });
-      // return router.push("/");
     });
   };
 
@@ -54,7 +48,6 @@ const Modal = () => {
     dispatch(deleteItem(item.data, item.id, item.type));
     dispatch({ type: "NOTIFY", payload: { loading: true } });
     deleteData(`shop/${item.id}`, auth.token).then((res) => {
-      // console.log(res)
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
       dispatch({ type: "NOTIFY", payload: { success: res.msg } });
@@ -64,7 +57,6 @@ const Modal = () => {
 
   const deleteLocation = (item) => {
     deleteData(`locations/${item.id}`, auth.token).then((res) => {
-      // console.log(res)
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
@@ -111,7 +103,6 @@ const Modal = () => {
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
-      //   style={{zIndex:"999"}}
     >
       <div className="modal-dialog" role="document">
         <div className="modal-content">

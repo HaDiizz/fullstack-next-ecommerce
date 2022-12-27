@@ -24,7 +24,6 @@ export default async (req, res) => {
 
 const createShop = async (req, res) => {
   try {
-    // console.log(req.body)
     const result = await auth(req, res);
 
     //FIX1
@@ -55,9 +54,6 @@ const createShop = async (req, res) => {
     if (!shopName || !contact || !detail || !location === "all" || !image)
       return res.status(400).json({ err: "กรุณากรอกข้อมูลให้ครบถ้วน" });
 
-    // const publicKeyHash = await bcrypt.hash(public_key, 12);
-    // const secretKeyHash = await bcrypt.hash(secret_key, 12);
-
     var publicKeyHash = CryptoJS.AES.encrypt(
       public_key,
       process.env.CRYPTO_PUBLIC
@@ -84,51 +80,10 @@ const createShop = async (req, res) => {
       newShop,
       msg: "สร้างร้านค้าสำเร็จ รอการอนุมัติจากผู้ดูแลระบบ",
     });
-    // res.json({msg: 'Success! Created a product.'})
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }
 };
-
-// class APIfeatures {
-//   constructor(query, queryString) {
-//     this.query = query;
-//     this.queryString = queryString;
-//   }
-//   filtering() {
-//     const queryObj = { ...this.queryString };
-
-//     const excludeFields = ["page", "sort", "limit"];
-//     excludeFields.forEach((el) => delete queryObj[el]);
-
-//     if (queryObj.location !== "all")
-//       this.query.find({ location: queryObj.location });
-//     if (queryObj.title !== "all")
-//       this.query.find({ title: { $regex: queryObj.title } });
-
-//     this.query.find();
-//     return this;
-//   }
-
-//   sorting() {
-//     if (this.queryString.sort) {
-//       const sortBy = this.queryString.sort.split(",").join("");
-//       this.query = this.query.sort(sortBy);
-//     } else {
-//       this.query = this.query.sort("-createdAt");
-//     }
-
-//     return this;
-//   }
-
-//   paginating() {
-//     const page = this.queryString.page * 1 || 1;
-//     const limit = this.queryString.limit * 1 || 6;
-//     const skip = (page - 1) * limit;
-//     this.query = this.query.skip(skip).limit(limit);
-//     return this;
-//   }
-// }
 
 const getShops = async (req, res) => {
   try {

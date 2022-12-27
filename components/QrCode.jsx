@@ -63,14 +63,12 @@ const QrCode = ({ order }) => {
     setVisible(true);
     const res = await postData(`promptpay`, { amount, shop }, auth.token);
     if (res.err) return console.log(res.err);
-    // console.log(res);
     setQrCode(res.data);
     setIsClicked(true);
   };
 
   const closeHandler = () => {
     setVisible(false);
-    // console.log("closed");
   };
 
   const handleUpload = (e) => {
@@ -79,8 +77,6 @@ const QrCode = ({ order }) => {
       setIsUpload(true);
       setImage(file);
     }
-    // console.log(file);
-    // console.log(file);
     if (!file) {
       setIsUpload(false);
       return dispatch({
@@ -143,7 +139,6 @@ const QrCode = ({ order }) => {
     dispatch({ type: "NOTIFY", payload: { success: res.msg } });
   };
 
-  // console.log(order)
   return (
     <div className="pb-4 flex text-right">
 

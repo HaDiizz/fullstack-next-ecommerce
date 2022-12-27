@@ -18,7 +18,6 @@ const OmiseBtn = ({ order }) => {
     amount: 0,
     name: "",
     email: "",
-    // token: "",
   };
 
   const [detail, setDetail] = useState(initialState);
@@ -32,7 +31,6 @@ const OmiseBtn = ({ order }) => {
 
   useEffect(() => {
     getData(`shop/${order.shop}`, auth.token).then((res) => {
-      // console.log(res);
       if (res.shop.public_key && res.shop.secret_key) {
         let publicKeyDecryp = CryptoJS.AES.decrypt(
           res.shop.public_key,
@@ -50,7 +48,6 @@ const OmiseBtn = ({ order }) => {
         if (publicKey !== "" && secretKey !== "") {
           setIsProvided(true);
         }
-        // console.log("decryp "+publicKey, secretKey);
       }
     });
   }, [auth.token, order]);
@@ -61,12 +58,10 @@ const OmiseBtn = ({ order }) => {
       amount: order?.total,
       name: order?.user.name,
       email: order?.user.email,
-      // token: tokenId,
     });
   }, []);
 
   const handleLoadScript = () => {
-    // console.log(window.OmiseCard)
     OmiseCard = window.OmiseCard;
     OmiseCard?.configure({
       publicKey: publicKey,
@@ -89,9 +84,7 @@ const OmiseBtn = ({ order }) => {
   const omiseHandler = () => {
     OmiseCard?.open({
       amount: order?.total * 100,
-      // submitFormTarget: '#checkout-form',
       onCreateTokenSuccess: async (token) => {
-        // console.log(token);
 
         var publicKeyHash = CryptoJS.AES.encrypt(
           publicKey,
@@ -102,7 +95,6 @@ const OmiseBtn = ({ order }) => {
           process.env.CRYPTO_SECRET
         ).toString();
 
-        // console.log("encryp " + publicKeyHash, secretKeyHash);
 
         postData(
           `omise_checkout`,
@@ -139,18 +131,8 @@ const OmiseBtn = ({ order }) => {
     creditcardConfigure();
     omiseHandler();
 
-    // const res = await postData('omise_checkout', {email, total, name, token}, auth.token)
-    // if (res.err)
-    //     return alert(res.err);
-    // alert(res.msg);
   };
 
-  // useEffect(() => {
-
-  // }
-  // , [])
-
-  // console.log(order)
   return (
     <div>
       <Script src="https://cdn.omise.co/omise.js" onLoad={handleLoadScript()} />

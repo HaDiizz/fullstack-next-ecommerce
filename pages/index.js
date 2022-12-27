@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { DataContext } from "../store/GlobalState";
 import { BsSearch } from "react-icons/bs";
+import { Loading } from '@nextui-org/react';
 
 const Home = (props) => {
   const { state, dispatch } = useContext(DataContext);
@@ -28,10 +29,6 @@ const Home = (props) => {
       setShop(data.shops);
     });
   }, []);
-
-  // useEffect(() => {
-  //   setShop(props.shops);
-  // }, [props.shops]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -193,8 +190,13 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        {shops &&
-          filter?.map((shop, index) => <ShopItem key={index} shop={shop} />)}
+        {shops && filter?.length > 0 ?
+          filter?.map((shop, index) => <ShopItem key={index} shop={shop} />)
+        :
+        <div className="pt-5">
+          <Loading size="lg" />
+        </div>
+        }
       </Element>
     </div>
   );

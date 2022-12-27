@@ -7,8 +7,7 @@ const Toast = ({ msg }) => {
   
   injectStyle();
   useEffect(() => {
-    // if (typeof window !== "undefined") {
-    // }
+
     if (msg.status === "success") {
       toast.success(`${msg.msg}`, {
         toastId: customId,

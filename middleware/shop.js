@@ -8,9 +8,6 @@ const shop = async (req, res) => {
 
   const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET); //verify token and get id user /get by Token
 
-  // console.log("Token =",token)
-  // console.log("ID =",decoded)
-
   if (!decoded) return res.status(400).json({ err: "Invalid Authentication" });
 
   const user = await Users.findOne({ _id: decoded.id }); //find same id

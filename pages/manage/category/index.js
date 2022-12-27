@@ -34,18 +34,12 @@ const Category = () => {
     if (id) {
       res = await putData(`categories/${id}`, { name }, auth.token);
 
-      // console.log(res)
-
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
-
-      // console.log(res) //join value ._doc in api/categories/[id].js
 
       dispatch(updateItem(categories, id, res.category, "ADD_CATEGORIES"));
     } else {
       res = await postData("categories", { name }, auth.token);
-
-      // console.log(res)
 
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -53,7 +47,7 @@ const Category = () => {
       dispatch({
         type: "ADD_CATEGORIES",
         payload: [...categories, res.newCategory],
-      }); //Realtime->add item to state
+      }); 
     }
 
     setName("");
@@ -63,7 +57,6 @@ const Category = () => {
   };
 
   const handleEditCategory = (category) => {
-    // console.log(category)
     setId(category._id);
     setName(category.name);
   };
@@ -132,24 +125,6 @@ const Category = () => {
                     })
                   }
                 />
-                {/* <i
-                className="fas fa-times text-danger"
-                data-toggle="modal"
-                data-target="#exampleModal"
-                onClick={() =>
-                  dispatch({
-                    type: "ADD_MODAL",
-                    payload: [
-                      {
-                        data: categories,
-                        id: category._id,
-                        title: category.name,
-                        type: "ADD_CATEGORIES",
-                      },
-                    ],
-                  })
-                }
-              ></i> */}
               </div>
             </div>
           </div>

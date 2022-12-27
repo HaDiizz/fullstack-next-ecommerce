@@ -41,8 +41,6 @@ export const addToCart = (product, cart) => {
   });
 
   const checkShop = cart.every((item) => {
-    // console.log("cart", item.shop)
-    // console.log("product", product.shop)
     return item.shop === product.shop;
   });
   // console.log(checkShop)
@@ -63,11 +61,6 @@ export const addToCart = (product, cart) => {
 };
 
 export const addToList = (shop, list) => {
-  // const check = list.every(item => {
-  //     return item._id !== shop._id
-  // })
-  // if(!check) return ({ type: 'NOTIFY', payload: {error: 'เพิ่มไปยังร้านค้าโปรดปรานแล้ว'} })
-
   const check = list.every((item) => {
     return item._id !== shop._id;
   });

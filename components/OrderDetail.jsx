@@ -25,18 +25,9 @@ const OrderDetail = ({ item }) => {
       },
       auth.token
     ).then((res) => {
-      // console.log(res);
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
-      // dispatch({
-      //   type: "ADD_CATEGORY",
-      //   payload: {
-      //     token: auth.token,
-      //     status: res.status,
-      //   },
-      // });
-      // router.reload()
       return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
     });
   };
@@ -45,7 +36,6 @@ const OrderDetail = ({ item }) => {
     <>
       <tr className="text-white">
         <td
-          // style={{ minWidth: "200px" }}
           className="align-middle"
         >
           <h5 className="text-capitalize text-secondary">
@@ -66,9 +56,6 @@ const OrderDetail = ({ item }) => {
             {item?.user.name}
           </td>
         ) : (
-          // <td className="align-middle" style={{ minWidth: "150px" }}>
-          //   {item.shop}
-          // </td>
           ""
         )}
 
@@ -83,16 +70,11 @@ const OrderDetail = ({ item }) => {
         }
 
         <td
-        // className="align-middle"
-        // style={{ minWidth: "50px", cursor: "pointer" }}
         >
           {item?.time}
         </td>
 
         <td>
-          {/* {item?.createdAt.split(" ")[0].split("T")[1].split(".")[0] +
-            " - " +
-            new Date(item?.createdAt).toDateString()} */}
             {
               moment(item?.createdAt).startOf(item?.createdAt).fromNow()
             }

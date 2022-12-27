@@ -21,7 +21,6 @@ export default async (req, res) => {
 const getOrders = async (req, res) => {
   try {
     const result = await auth(req, res);
-    // const shop = await Shop.findOne({ user: result.id });
     let orders;
     if (result.role === "seller") {
       const shop = await shopOwner(req, res);
@@ -35,6 +34,5 @@ const getOrders = async (req, res) => {
     res.json({ orders });
   } catch (err) {
     return res.status(500).json({ err: err.message });
-    // console.log(err)
   }
 };

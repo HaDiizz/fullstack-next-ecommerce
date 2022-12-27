@@ -36,17 +36,6 @@ const NavBar = ({ handleToggleSidebar }) => {
     return (
       <div className="button-login ml-5 ">
         <Row>
-          {/* <NextLink href="/profile">
-            <a>
-              <User
-                pointer="true"
-                className="cursor-pointer"
-                size="md"
-                squared
-                src={auth.user.avatar}
-              />
-            </a>
-          </NextLink> */}
 
           <Dropdown placement="bottom-left">
             <Dropdown.Trigger>
@@ -60,17 +49,17 @@ const NavBar = ({ handleToggleSidebar }) => {
               </User>
             </Dropdown.Trigger>
             <Dropdown.Menu color="primary" aria-label="User Actions">
-              <Dropdown.Item key="profile" css={{ height: "$18" }}>
+              <Dropdown.Item key="profile" textValue css={{ height: "$18" }}>
                 <Text b color="primary" css={{ d: "flex" }}>
                   {auth.user.email}
                 </Text>
               </Dropdown.Item>
-              <Dropdown.Item key="settings" withDivider>
+              <Dropdown.Item key="settings" textValue withDivider>
                 <NextLink href="/profile">
                   <a className="text-black">โปรไฟล์</a>
                 </NextLink>
               </Dropdown.Item>
-              <Dropdown.Item key="team_settings">
+              <Dropdown.Item textValue key="team_settings">
                 {auth.user && auth.user.role === "admin" ? (
                   <NextLink href="/admin/shop">
                     <a className="text-black">ร้านค้า</a>
@@ -86,125 +75,33 @@ const NavBar = ({ handleToggleSidebar }) => {
                 )}
               </Dropdown.Item>
               {auth?.user && auth?.user.role === "admin" && (
-                <Dropdown.Item key="users">
+                <Dropdown.Item key="users" textValue>
                   <NextLink href="/admin/user">
                     <a className="text-black">ผู้ใช้งาน</a>
                   </NextLink>
                 </Dropdown.Item>
               )}
               {auth.user && auth.user.role === "admin" && (
-                <Dropdown.Item key="services">
+                <Dropdown.Item key="services" textValue>
                   <NextLink href="/admin/services">
                     <a className="text-black">การบริการ</a>
                   </NextLink>
                 </Dropdown.Item>
               )}
               {auth.user && auth.user.role === "admin" && (
-                <Dropdown.Item key="location">
+                <Dropdown.Item key="location" textValue>
                   <NextLink href="/admin/location">
                     <a className="text-black">สถานที่</a>
                   </NextLink>
                 </Dropdown.Item>
               )}
 
-              <Dropdown.Item key="logout" color="error" withDivider>
+              <Dropdown.Item key="logout" color="error" textValue withDivider>
                 <button onClick={handleLogout}>ออกจากระบบ</button>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 
-          <>
-            {/* <div className="btn-group show text-white dropdown pt-1">
-            <span
-              className="dropdown-toggle"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              {auth.user.name}
-            </span>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <User src={auth.user.avatar} css={{ p: 0 }}>
-                <Row>
-                  <Text size={14} css={{ tt: "capitalize", color: "white" }}>
-                    {auth.user.email}
-                  </Text>
-                </Row>
-                {auth.user.role}
-              </User>
-              <NextLink href="/profile">
-                <a className="dropdown-item">Profile</a>
-              </NextLink>
-              {auth.user && auth.user.role === "admin" ? (
-                <NextLink href="/admin/shop">
-                  <a
-                    className="dropdown-item"
-                    // style={{ fontSize: "16px" }}
-                  >
-                    Shops
-                  </a>
-                </NextLink>
-              ) : auth.user.role === "seller" ? (
-                <NextLink href="/manage">
-                  <a
-                    className="dropdown-item"
-                    // style={{ fontSize: "16px" }}
-                  >
-                    Manage Shop
-                  </a>
-                </NextLink>
-              ) : (
-                <NextLink href="/register">
-                  <a
-                    className="dropdown-item"
-                    // style={{ fontSize: "16px" }}
-                  >
-                    Register Shop
-                  </a>
-                </NextLink>
-              )}
-
-              {auth.user && auth.user.role === "admin" && (
-                <>
-                  <NextLink href="/admin/user">
-                    <a
-                      className="dropdown-item"
-                      // style={{ fontSize: "16px" }}
-                    >
-                      Users
-                    </a>
-                  </NextLink>
-                  <NextLink href="/admin/location">
-                    <a
-                      className="dropdown-item"
-                      // style={{ fontSize: "16px" }}
-                    >
-                      Locations
-                    </a>
-                  </NextLink>
-                  <NextLink href="/admin/services">
-                    <a
-                      className="dropdown-item"
-                      // style={{ fontSize: "16px" }}
-                    >
-                      Services
-                    </a>
-                  </NextLink>
-                </>
-              )}
-
-              <button
-                className="dropdown-item cursor-pointer bg-neutral-700"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </div>
-          </div> */}
-          </>
         </Row>
       </div>
     );
@@ -234,8 +131,6 @@ const NavBar = ({ handleToggleSidebar }) => {
 
   const handleNavbar = (e) => {
     e.preventDefault();
-    // const navbar = document.querySelector('.navbar')
-    // const menu = document.querySelector('#bars')
     setShow(!show);
   };
 

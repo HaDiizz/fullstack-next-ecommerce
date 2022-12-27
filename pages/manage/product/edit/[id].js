@@ -22,8 +22,6 @@ const EditItem = () => {
 
   const [product, setProduct] = useState(initialState);
   
-  // const { title, price, inStock, content, category } = product;
-
   const [onEdit, setOnEdit] = useState(false);
 
   const [Isimages, setIsImages] = useState(false);
@@ -183,7 +181,6 @@ const EditItem = () => {
               {Isimages && (
                 <div
                   id="file_img"
-                  // style={styleUpload}
                 >
                   {images &&
                     images?.map((img, index) => (
@@ -196,7 +193,6 @@ const EditItem = () => {
                         <span onClick={() => deleteImage(index)}>X</span>
                       </div>
                     ))}
-                  {/* <span onClick={handleDestroys}>X</span> */}
                 </div>
               )}
             </div>

@@ -23,7 +23,6 @@ const Filter = ({ state }) => {
   };
 
   useEffect(() => {
-    // console.log(search)
     if (search) {
       filterSearch({ router, search: search ? search.toLowerCase() : "all" });
     }

@@ -25,10 +25,6 @@ const Profile = () => {
   const { state, dispatch } = useContext(DataContext);
   const { auth, notify, shops } = state;
 
-  //   const shopsArr = shops.split(',');
-
-  // console.log(shops)
-
   useEffect(() => {
     if (auth.user)
       setData({
@@ -48,10 +44,15 @@ const Profile = () => {
     e.preventDefault();
 
     if (password) {
-      const errMsg = validate(name, auth.user.email, password, cf_password);
-      //   console.log(errMsg)
-      if (errMsg)
-        return dispatch({ type: "NOTIFY", payload: { error: errMsg } });
+      if (password !== cf_password) {
+        return dispatch({ type: "NOTIFY", payload: { error: "Password does not match" } });
+      }
+      else if (password.length < 6) {
+        return dispatch({ type: "NOTIFY", payload: { error: "Password must be greater than or equal 6" } });
+      }
+      else if (!name) {
+        return dispatch({ type: "NOTIFY", payload: { error: "Username is required" } });
+      }
       updatePassword();
     }
 
@@ -62,7 +63,6 @@ const Profile = () => {
   const updatePassword = () => {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
     patchData("user/resetPassword", { password }, auth.token).then((res) => {
-      //   console.log(res);
 
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -71,7 +71,6 @@ const Profile = () => {
   };
 
   const changeAvatar = (e) => {
-    // console.log(e.target.files[0])
     const file = e.target.files[0];
 
     if (!file)
@@ -100,8 +99,6 @@ const Profile = () => {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     if (avatar) media = await imageUploadArr([avatar]);
-
-    // console.log(media)
 
     patchData(
       "user",
@@ -136,14 +133,6 @@ const Profile = () => {
 
       <section className="text-secondary my-5 pt-[3rem]">
         <div className="center_div">
-          {/* <h3
-            className="text-center text-uppercase mb-5"
-            style={{ fontSize: "150%" }}
-          >
-            {auth.user && auth?.user.role === "user"
-              ? "User Profile"
-              : "Admin Profile"}
-          </h3> */}
 
           <div className="avatar mt-4">
             <img

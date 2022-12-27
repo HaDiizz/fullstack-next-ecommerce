@@ -34,7 +34,6 @@ const OmiseIBBtn = ({ order }) => {
   }, []);
 
   const handleLoadScript = () => {
-    // console.log(window.OmiseCard)
     OmiseCard = window.OmiseCard;
     OmiseCard?.configure({
       publicKey: "pkey_test_5rqcq77se1ccy84j7uz",
@@ -63,19 +62,9 @@ const OmiseIBBtn = ({ order }) => {
   const omiseHandler = () => {
     OmiseCard?.open({
       amount: order?.total * 100,
-      // submitFormTarget: '#checkout-form',
       onCreateTokenSuccess: async (token) => {
         console.log(token);
 
-        // setDetail({
-        //   ...detail,
-        //   total: order?.total,
-        //   name: order?.user.name,
-        //   email: order?.user.email,
-        //   token: tk,
-        // });
-
-        // setTokenId(token);
 
         postData(
           `omise_checkout/internet_banking`,
@@ -102,8 +91,6 @@ const OmiseIBBtn = ({ order }) => {
     internetBankingConfigure();
     omiseHandler();
   };
-
-  //   console.log(order);
 
   return (
     <div className="flex text-right">

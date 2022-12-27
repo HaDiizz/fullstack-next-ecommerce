@@ -28,21 +28,16 @@ const ManageShopId = () => {
   useEffect(() => {
     const newArr = shops.filter((shop) => shop._id === id);
     setEditShop(newArr);
-    // console.log(newArr)
   }, [shops, id]);
 
   useEffect(() => {
     const newArr = users.filter((user) => user?._id === editShop[0]?.user._id);
     setCheckSeller(newArr[0]?.role === "seller" ? true : false);
-    // console.log(newArr);
   }, [users, editShop]);
 
   useEffect(() => {
     editShop.map((owner) => {
-      // console.log(owner);
-      // setCheckSeller(owner.user.role === "seller" ? true : false);
       setCheckAccept(owner.accepted);
-      // setUserAuth([owner.user]);
     });
   }, [editShop]);
 
@@ -64,17 +59,9 @@ const ManageShopId = () => {
 
     patchData(`shop/${editShop[0].user._id}`, { role }, auth.token).then(
       (res) => {
-        // if (res.role === "seller") {
-        //   setCheckSeller(true);
-        // }
-        // if(res.role === "user"){
-        //   setCheckSeller(false);
-        // }
 
         if (res.err)
           return dispatch({ type: "NOTIFY", payload: { error: res.err } });
-
-        // console.log(res);
 
         dispatch(
           updateItem(
@@ -89,20 +76,16 @@ const ManageShopId = () => {
         );
 
         setTimeout(() => {
-          // router.reload();
           router.push("/admin/shop");
         }, 500);
         return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
       }
     );
 
-    // if (numACC % 2 !== 0) {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
     patchData(`shop/accept/${editShop[0]._id}`, { accepted }, auth.token).then(
       (res) => {
-        // console.log(res)
         setCheckAccept(res.accepted);
-        //   console.log("RES=",res)
 
         if (res.err)
           return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -120,13 +103,11 @@ const ManageShopId = () => {
         );
 
         setTimeout(() => {
-          // router.reload();
           router.push("/admin/shop");
         }, 500);
         return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
       }
     );
-    // }
   };
 
   useEffect(() => {
@@ -244,7 +225,6 @@ const ManageShopId = () => {
                   <input
                     type="checkbox"
                     id="isSeller"
-                    // checked={shopOwner?.user.role === "seller" ? true : false}
                     checked={checkSeller}
                     style={{ width: "20px", height: "20px" }}
                     onChange={handleCheckSeller}

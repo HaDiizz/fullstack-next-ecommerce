@@ -43,17 +43,14 @@ const EditShop = () => {
   useEffect(() => {
     const newArr = Object.values(shops)?.filter((shop) => shop._id !== id);
     setEditShop(newArr);
-    // console.log(newArr);
   }, [shops]);
 
   useEffect(() => {
     editShop.map((owner) => {
-      // console.log(owner)
       setValueShop({
         ...valueShop,
         logo: owner.logo,
       });
-      // setId(owner._id)
 
       let publicKeyDecryp = CryptoJS.AES.decrypt(
         shops[0]?.public_key,
@@ -76,25 +73,12 @@ const EditShop = () => {
         secret_key: secretKey,
       });
 
-      // setData({
-      //   ...data,
-      //   shopName: owner.shopName,
-      //   detail: owner.detail,
-      //   contact: owner.contact,
-      //   location: owner.location,
-      //   id: id,
-      //   public_key: owner.public_key === '' ? "" : publicKey,
-      //   secret_key: owner.secret_key === '' ? "" : secretKey,
-      // });
-      //   console.log(owner);
     });
   }, [editShop]);
 
-  //   console.log(editShop);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    //   console.log(e.target.name)
     setData({ ...data, [name]: value });
     dispatch({ type: "NOTIFY", payload: {} });
   };
@@ -133,11 +117,7 @@ const EditShop = () => {
   };
 
   const changeLogo = (e) => {
-    // console.log(e.target.files[0])
     const file = e.target.files[0];
-    // if (e.target.files.length !== 0) {
-    //   setNewLogo(URL.createObjectURL(e.target.files[0]));
-    // }
     if (!file)
       return dispatch({
         type: "NOTIFY",
@@ -203,16 +183,6 @@ const EditShop = () => {
             "ADD_SHOP"
           )
         );
-
-        //   dispatch({
-        //     type: "ADD_SHOP",
-        //     payload: {
-        //       token: auth.token,
-        //       shop: res.shop,
-        //     },
-        //   });
-
-        //   router.reload();
         return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
       });
   };
@@ -312,15 +282,6 @@ const EditShop = () => {
               <div className="col-md-5 pl-[5rem]">
                 <div className="form-group">
                   <label htmlFor="contact">Public Key</label>
-                  {/* <input
-                    type="text"
-                    name="public_key"
-                    value={public_key}
-                    className="form-control"
-                    placeholder="Enter your public key"
-                    //   disabled={true}
-                    onChange={handleChange}
-                  /> */}
                   <Input.Password
                     autoComplete="on"
                     aria-label="OMISE PUBLIC KEY"
@@ -338,15 +299,6 @@ const EditShop = () => {
               <div className="col-md-5 pl-[5rem]">
                 <div className="form-group">
                   <label htmlFor="contact">Secret Key</label>
-                  {/* <input
-                    type="text"
-                    name="secret_key"
-                    value={secret_key}
-                    className="form-control"
-                    placeholder="Enter your secret key"
-                    //   disabled={true}
-                    onChange={handleChange}
-                  /> */}
                   <Input.Password
                     autoComplete="on"
                     aria-label="OMISE SECRET KEY"

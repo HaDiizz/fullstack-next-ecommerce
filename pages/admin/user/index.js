@@ -18,12 +18,8 @@ const AdminManageUsers = () => {
   const roles = ["admin", "user", "seller"];
 
   const columns =
-    // useMemo (() =>
     [
       {
-        // name: "image",
-        // sortable: true,
-        // sortField: "image",
         hide: "sm",
         selector: (row) => <Image width={40} height={35} src={row.avatar} alt="logo" />,
       },
@@ -47,7 +43,6 @@ const AdminManageUsers = () => {
       },
       {
         name: "Role",
-        // sortable: true,
         sortField: "role",
         selector: (row) => {
           return row.role === "admin" ? (
@@ -73,31 +68,6 @@ const AdminManageUsers = () => {
             </Select>
           );
         },
-        // hide: "sm",
-
-        // conditionalCellStyles: [
-        //   {
-        //     when: (row) => row.role === "user",
-        //     classNames: ["text-primary uppercase"],
-        //     style: {
-        //       fontWeight: "bold",
-        //     },
-        //   },
-        //   {
-        //     when: (row) => row.role === "admin",
-        //     classNames: ["text-danger uppercase"],
-        //     style: {
-        //       fontWeight: "bold",
-        //     },
-        //   },
-        //   {
-        //     when: (row) => row.role === "seller",
-        //     classNames: ["text-orange-500 uppercase"],
-        //     style: {
-        //       fontWeight: "bold",
-        //     },
-        //   },
-        // ],
       },
       {
         name: "IsVerified",
@@ -195,7 +165,6 @@ const AdminManageUsers = () => {
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
-      // console.log(res);
 
       dispatch(
         updateItem(
@@ -241,8 +210,6 @@ const AdminManageUsers = () => {
           paginationPerPage={20}
           defaultSortField="createdAt"
           defaultSortAsc={false}
-          // fixedHeader
-          // fixedHeaderScrollHeight="450px"
           highlightOnHover
         />
       </>

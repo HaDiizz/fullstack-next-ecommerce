@@ -51,13 +51,6 @@ const Products = () => {
   }, [getData, id]);
 
   const handleSelect = (e) => {
-    // const value = e.target.value;
-    // if (value === "all") {
-    //   setSelectedCategory(categories);
-    // } else {
-    //   const filtered = categories.filter((item) => item._id === value);
-    //   setSelectedCategory(filtered);
-    // }
     setSelectedCategory(e.target.value);
   };
 
@@ -194,27 +187,14 @@ const Products = () => {
                         <p className="text-red-500">สินค้าหมด</p>
                       )}
                     </div>
-                    {/* <p>หมวดหมู่: {item.category}</p> */}
                   </div>
                   <div className="col-md-4 col-sm-12 pb-3">
-                    {/* <label htmlFor="">Add to cart</label>
-                      <input
-                        className="form-control"
-                        type="checkbox"
-                        name="checkBox"
-                        checked={item?.checked}
-                        // value={item?.checked}
-                        onChange={() => handleCheck(item._id)}
-                      /> */}
 
                     <button
                       className="px-4 py-2 rounded text-white bg-sky-500 hover:bg-sky-700"
                       onClick={() => {
-                        // console.log(item)
-                        // console.log(cart)
                         dispatch(addToCart(item, cart));
 
-                        // router.push("/cart");
                       }}
                       style={{
                         fontSize: "12px",

@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../../store/GlobalState";
 import { useRouter } from "next/dist/client/router";
 import { patchData, postData, getData } from "../../../utils/fetchData";
-// import { updateItem } from "../../store/Actions";
 import Link from "next/link";
 import { imageUploadArr } from "../../../utils/imageUpload";
 import Loading from "../../../components/Loading";
@@ -55,7 +54,6 @@ const ManageProduct = () => {
     let num = 0;
     let err = "";
     const files = [...e.target.files];
-    // console.log(files)
 
     if (files.length === 0)
       return dispatch({
@@ -117,11 +115,8 @@ const ManageProduct = () => {
     const imgNewURL = images.filter((img) => !img.url);
     const imgOldURL = images.filter((img) => img.url);
 
-    // console.log(imgNewURL)
-    // console.log(imgOldURL)
     if (imgNewURL.length > 0) media = await imageUploadArr(imgNewURL);
 
-    // console.log(media)
     let res;
     if (onEdit) {
       res = await putData(
@@ -137,7 +132,6 @@ const ManageProduct = () => {
         { ...product, images: [...imgOldURL, ...media] },
         auth.token
       );
-      // console.log(res);
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
     }
@@ -208,7 +202,6 @@ const ManageProduct = () => {
                       <span onClick={() => deleteImage(index)}>X</span>
                     </div>
                   ))}
-                {/* <span onClick={handleDestroys}>X</span> */}
               </div>
             )}
           </div>
