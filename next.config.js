@@ -1,7 +1,7 @@
 
 module.exports = {
   env : {
-    "BASE_URL" : "http://localhost:3000",
+    "BASE_URL" : "https://next-psu-ecommerce.netlify.app",
     "MONGO_URL" : "mongodb+srv://disntp:14721414@senior-project.cg2sq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "ACCESS_TOKEN_SECRET" : "Qh4LTDYQLjPFMXr7cYRW3Uqn8YQ52zxrVUJx8w5WfxLLjGVgfe",
     "REFRESH_TOKEN": "CeEA62aC9H5DHnsA2xpUUyhLJ2a5k4MxCBWuvdyzy5Q3hEBRnfd9LdSt2uSBDAe7Raa845",
