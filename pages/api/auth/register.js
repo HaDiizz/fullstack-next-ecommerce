@@ -52,7 +52,7 @@ const register = async (req, res) => {
         subject: "NextEcommerce - Verify your email",
         html: `<h1>ยินดีต้อนรับสู่ NextEcommerce, คุณ ${user.name}</h1>
                       <h4>กรุณายืนยันอีเมล เพื่อดำเนินการสมัครสมาชิกให้สำเร็จภายใน 1 ชั่วโมงนับจากนี้</h4>        
-                      <a href="http://localhost:3000/verify/${newToken.token}">
+                      <a href="https://next-psu-ecommerce.netlify.app/verify/${newToken.token}">
                           Verify Email
                       </a>
               `,
@@ -110,7 +110,7 @@ const register = async (req, res) => {
       subject: "NextEcommerce - Verify your email",
       html: `<h1>ยินดีต้อนรับสู่ NextEcommerce, คุณ ${name}</h1>
                     <h4>กรุณายืนยันอีเมล เพื่อดำเนินการสมัครสมาชิกให้สำเร็จภายใน 1 ชั่วโมงนับจากนี้</h4>        
-                    <a href="http://localhost:3000/verify/${token.token}">
+                    <a href="https://next-psu-ecommerce.netlify.app/verify/${token.token}">
                         Verify Email
                     </a>
             `,
